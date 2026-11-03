@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-styles.css">
   <link rel="stylesheet" href="anniversary.css">
+  <link rel="stylesheet" href="anniversary-enhancements.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="envelope.js" defer></script>
   <script src="chapter-atmospheres.js" defer></script>
@@ -35,7 +36,6 @@
     <header class="book-header">
       <a class="wordmark" href="#book" aria-label="С годовщиной, любимая">OUR <span>STORY</span></a>
       <span class="edition">НАША ИСТОРИЯ · ЛИЧНОЕ ИЗДАНИЕ</span>
-      <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить музыку" aria-pressed="false">♫</button>
     </header>
     <section class="book" id="book" aria-label="Интерактивная книга нашей истории">
       <div class="book-spine" aria-hidden="true"></div>
@@ -49,15 +49,14 @@
     </section>
   </main>
   <section class="final-screen" id="finalScreen" aria-label="Финал нашей истории" hidden>
-    <div class="final-scene" aria-hidden="true">
-      <div class="final-heart-wrap">
+    <div class="final-scene">
+      <div class="final-heart-wrap" aria-hidden="true">
         <svg class="final-heart-art" viewBox="0 0 240 220" role="presentation" focusable="false">
           <defs>
             <linearGradient id="heartFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4c8d7"/><stop offset=".52" stop-color="#df91b2"/><stop offset="1" stop-color="#ad6e9f"/></linearGradient>
-            <filter id="heartGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
-          <path class="heart-fill" d="M120 202 27 111C-12 68 17 10 66 13c25 1 43 17 54 37 12-20 30-36 55-37 49-3 78 55 39 98z"/>
-          <path class="heart-outline" d="M120 202 27 111C-12 68 17 10 66 13c25 1 43 17 54 37 12-20 30-36 55-37 49-3 78 55 39 98z"/>
+          <path class="heart-fill" d="M120 204C105 190 24 126 24 72 24 39 48 18 77 18c19 0 34 11 43 27 9-16 24-27 43-27 29 0 53 21 53 54 0 54-81 118-96 132Z"/>
+          <path class="heart-outline" d="M120 204C105 190 24 126 24 72 24 39 48 18 77 18c19 0 34 11 43 27 9-16 24-27 43-27 29 0 53 21 53 54 0 54-81 118-96 132Z"/>
         </svg>
         <span class="final-spark spark-one">✦</span><span class="final-spark spark-two">✧</span><span class="final-spark spark-three">✦</span><span class="final-spark spark-four">⋆</span>
         <span class="final-petal petal-one">❀</span><span class="final-petal petal-two">✿</span><span class="final-petal petal-three">❀</span>
@@ -68,8 +67,6 @@
     <button class="reread-button" id="rereadButton" type="button">Перечитать историю</button>
     <div class="heart-words" id="heartWords" aria-hidden="true"></div>
   </section>
-  <audio id="trackOne" src="audio/oslepitelnaya.mp3" preload="none"></audio>
-  <audio id="trackTwo" src="audio/rayskie-cvety.mp3" preload="none"></audio>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
