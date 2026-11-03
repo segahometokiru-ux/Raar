@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="90" y1="80" x2="760" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FEE5F1"/>
+      <stop offset="0.45" stop-color="#EBC6FF"/>
+      <stop offset="1" stop-color="#B79DFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#160F1F"/>
+  <rect x="32" y="32" width="736" height="936" rx="32" fill="url(#bg2)" opacity="0.18"/>
+  <circle cx="210" cy="250" r="110" fill="#FFF4F9" fill-opacity="0.8"/>
+  <circle cx="560" cy="320" r="140" fill="#B799FF" fill-opacity="0.35"/>
+  <path d="M180 730C220 660 278 620 356 620C453 620 530 715 585 780" stroke="#F5E7FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M230 675C270 635 322 612 398 612C467 612 528 643 568 695" stroke="#FFD3EA" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="327" cy="370" r="16" fill="#FFFFFF" fill-opacity="0.94"/>
+  <circle cx="466" cy="430" r="16" fill="#FFFFFF" fill-opacity="0.94"/>
+  <circle cx="476" cy="700" r="12" fill="#FFFFFF" fill-opacity="0.94"/>
+  <text x="400" y="535" text-anchor="middle" fill="#FFF8FD" font-size="40" font-family="Arial, sans-serif" font-weight="700">Together</text>
+</svg>

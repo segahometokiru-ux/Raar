@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="70" y1="20" x2="690" y2="950" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9D9F0"/>
+      <stop offset="0.5" stop-color="#DAB5FF"/>
+      <stop offset="1" stop-color="#7B6EFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#110C17"/>
+  <rect x="36" y="36" width="728" height="928" rx="32" fill="url(#bg4)" opacity="0.22"/>
+  <circle cx="600" cy="220" r="135" fill="#FFE7F7" fill-opacity="0.75"/>
+  <circle cx="240" cy="710" r="160" fill="#A289FF" fill-opacity="0.32"/>
+  <path d="M160 720C220 645 284 610 404 610C514 610 594 668 640 728" stroke="#F9EEFF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M232 670C286 640 332 624 402 623C470 621 526 634 572 666" stroke="#FFD6EE" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="349" cy="350" r="15" fill="#FFF9FE" fill-opacity="0.96"/>
+  <circle cx="512" cy="387" r="15" fill="#FFF9FE" fill-opacity="0.96"/>
+  <circle cx="432" cy="640" r="12" fill="#FFF9FE" fill-opacity="0.96"/>
+  <text x="400" y="542" text-anchor="middle" fill="#FFF9FF" font-size="42" font-family="Arial, sans-serif" font-weight="700">Forever</text>
+</svg>

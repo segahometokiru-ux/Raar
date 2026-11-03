@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg9" x1="80" y1="40" x2="690" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0F8"/>
+      <stop offset="0.5" stop-color="#DDBAFF"/>
+      <stop offset="1" stop-color="#8B79FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#130E1D"/>
+  <rect x="34" y="34" width="732" height="932" rx="32" fill="url(#bg9)" opacity="0.2"/>
+  <circle cx="220" cy="250" r="120" fill="#FFEAF8" fill-opacity="0.72"/>
+  <circle cx="560" cy="680" r="175" fill="#B091FF" fill-opacity="0.34"/>
+  <path d="M168 734C228 662 287 622 403 622C510 622 585 671 642 742" stroke="#F9EBFF" stroke-width="15" stroke-linecap="round"/>
+  <path d="M220 680C278 642 331 625 397 625C470 625 531 643 585 680" stroke="#FCD7EE" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="338" cy="358" r="14" fill="#FFFFFF" fill-opacity="0.95"/>
+  <circle cx="494" cy="405" r="14" fill="#FFFFFF" fill-opacity="0.95"/>
+  <circle cx="412" cy="700" r="12" fill="#FFFFFF" fill-opacity="0.95"/>
+  <text x="400" y="540" text-anchor="middle" fill="#FFF9FF" font-size="39" font-family="Arial, sans-serif" font-weight="700">Happiness</text>
+</svg>

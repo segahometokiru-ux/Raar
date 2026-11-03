@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="60" y1="40" x2="740" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD2E8"/>
+      <stop offset="0.52" stop-color="#D2B5FF"/>
+      <stop offset="1" stop-color="#8A7CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#140E1D"/>
+  <rect x="36" y="36" width="728" height="928" rx="32" fill="url(#bg3)" opacity="0.2"/>
+  <circle cx="265" cy="240" r="120" fill="#FFE9F8" fill-opacity="0.72"/>
+  <circle cx="585" cy="690" r="180" fill="#9F87FF" fill-opacity="0.38"/>
+  <path d="M165 730C230 660 292 635 400 632C505 629 580 665 632 730" stroke="#F7ECFF" stroke-width="15" stroke-linecap="round"/>
+  <path d="M222 680C271 645 324 630 400 630C475 630 535 646 584 680" stroke="#FDD7ED" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="350" cy="350" r="12" fill="#FFFFFF" fill-opacity="0.96"/>
+  <circle cx="448" cy="323" r="12" fill="#FFFFFF" fill-opacity="0.96"/>
+  <circle cx="552" cy="382" r="12" fill="#FFFFFF" fill-opacity="0.96"/>
+  <text x="400" y="538" text-anchor="middle" fill="#FFF7FF" font-size="38" font-family="Arial, sans-serif" font-weight="700">Love</text>
+  <text x="400" y="590" text-anchor="middle" fill="#FFF7FF" font-size="38" font-family="Arial, sans-serif" font-weight="700">Moments</text>
+</svg>

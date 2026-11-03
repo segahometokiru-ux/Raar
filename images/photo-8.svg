@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg8" x1="100" y1="30" x2="700" y2="970" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD9EB"/>
+      <stop offset="0.46" stop-color="#D7B7FF"/>
+      <stop offset="1" stop-color="#8576FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#110C17"/>
+  <rect x="36" y="36" width="728" height="928" rx="30" fill="url(#bg8)" opacity="0.19"/>
+  <circle cx="600" cy="250" r="120" fill="#FFE9F8" fill-opacity="0.7"/>
+  <circle cx="260" cy="690" r="150" fill="#9E83FF" fill-opacity="0.32"/>
+  <path d="M150 734C224 660 290 624 403 624C506 624 584 666 642 735" stroke="#F7EFFF" stroke-width="15" stroke-linecap="round"/>
+  <path d="M220 677C276 640 332 625 405 625C474 625 531 641 585 680" stroke="#FFD7F0" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="332" cy="360" r="14" fill="#FFFFFF" fill-opacity="0.95"/>
+  <circle cx="485" cy="390" r="14" fill="#FFFFFF" fill-opacity="0.95"/>
+  <circle cx="405" cy="690" r="12" fill="#FFFFFF" fill-opacity="0.95"/>
+  <text x="400" y="548" text-anchor="middle" fill="#FFF8FF" font-size="41" font-family="Arial, sans-serif" font-weight="700">Always</text>
+</svg>
