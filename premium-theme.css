@@ -1,0 +1,112 @@
+/* OUR STORY — refined twilight palette with a subtle shoujo-anime atmosphere. */
+:root {
+  color-scheme: dark;
+  --ink-night: #11131d;
+  --ink-deep: #171a28;
+  --ink-card: rgba(31, 34, 49, .76);
+  --ink-card-strong: rgba(37, 39, 55, .92);
+  --paper: #f7f3ef;
+  --paper-shadow: #e9e1df;
+  --text-main: #f5f0f3;
+  --text-muted: #c4bdc8;
+  --sakura: #e8a9bc;
+  --sakura-bright: #f2c3cf;
+  --lavender: #b7afd5;
+  --gold: #d7c294;
+  --line-soft: rgba(245, 230, 239, .14);
+  --shadow-deep: 0 28px 80px rgba(5, 7, 16, .38);
+  --font-display: "Playfair Display", "Zen Old Mincho", Georgia, serif;
+  --font-body: "DM Sans", "Noto Sans JP", sans-serif;
+}
+
+body {
+  color: var(--text-main);
+  font-family: var(--font-body);
+  background-color: var(--ink-night);
+  background-image: radial-gradient(ellipse at 50% -10%, rgba(114, 105, 145, .25), transparent 52%), radial-gradient(ellipse at 95% 78%, rgba(128, 83, 111, .14), transparent 34%);
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--sakura-bright); outline-offset: 4px; }
+
+.ambient { opacity: .8; }
+.ambient-glow { background: radial-gradient(ellipse, rgba(194, 143, 169, .14), transparent 68%); }
+.star { background: #fff4f4; box-shadow: 0 0 8px rgba(255, 244, 244, .72), 0 0 18px rgba(232, 169, 188, .48); }
+
+.cover {
+  background: radial-gradient(ellipse at 50% 46%, rgba(105, 93, 127, .23), transparent 37%), radial-gradient(ellipse at 50% 100%, rgba(138, 81, 113, .16), transparent 48%), linear-gradient(150deg, #121521 0%, #171725 54%, #211a29 100%);
+}
+.cover::before, .cover::after { content: ""; position: absolute; pointer-events: none; border: 1px solid rgba(232, 169, 188, .13); border-radius: 50%; }
+.cover::before { width: min(74vw, 680px); aspect-ratio: 1; animation: orbit-breathe 12s ease-in-out infinite alternate; }
+.cover::after { width: min(58vw, 520px); aspect-ratio: 1; border-color: rgba(215, 194, 148, .1); animation: orbit-breathe 16s ease-in-out infinite alternate-reverse; }
+.cover-content { position: relative; z-index: 1; }
+.cover-kicker, .cover-note { color: var(--gold); letter-spacing: .24em; }
+.cover h1, #cover-title { color: #fbf3f5; font-family: var(--font-display); font-weight: 400; letter-spacing: .055em; text-shadow: 0 10px 38px rgba(232, 169, 188, .16); }
+.cover h1 span, #cover-title span { color: var(--sakura); }
+.cover-subtitle { color: #d7cbd4; font-family: var(--font-display); font-style: italic; }
+.envelope-button { filter: drop-shadow(0 22px 35px rgba(3, 5, 12, .32)); }
+.envelope-button:hover { filter: drop-shadow(0 25px 42px rgba(3, 5, 12, .44)); }
+.envelope-hint { color: #d7cbd4; }
+
+.book-header { border-color: var(--line-soft); }
+.wordmark { color: #f8f2f4; font-family: var(--font-display); letter-spacing: .12em; }
+.wordmark span { color: var(--sakura); }
+.edition, .swipe-hint { color: #bdb4c2; letter-spacing: .12em; }
+.book { filter: drop-shadow(0 28px 70px rgba(2, 4, 12, .24)); }
+.book-spine { background: linear-gradient(90deg, rgba(108, 76, 91, .2), rgba(255,255,255,.55), rgba(108, 76, 91, .12)); }
+.page-paper { border: 1px solid rgba(255, 255, 255, .46); border-radius: 5px 16px 16px 5px; background: linear-gradient(135deg, #faf7f2, var(--paper) 60%, #f0e9e8); box-shadow: 0 25px 75px rgba(5, 7, 16, .23), inset 0 0 44px rgba(156, 119, 129, .045); }
+.chapter-content { color: #302c35; }
+.chapter-topline { color: #817783; border-color: rgba(105, 87, 105, .2); letter-spacing: .16em; }
+.chapter-kicker { color: #a26d83; letter-spacing: .19em; }
+.chapter-copy h1, .chapter-copy h2 { color: #302c35; font-family: var(--font-display); font-weight: 500; letter-spacing: -.035em; }
+.chapter-copy h1 em, .chapter-copy h2 em { color: #a66d87; }
+.chapter-copy > p:not(.chapter-kicker) { color: #5b535d; }
+.chapter-ornament { color: rgba(166, 109, 135, .16); }
+.closing-line { color: #93637b; font-family: var(--font-display); }
+.compliments li, .detail-card, .future-card, .chapter-quote { border-color: rgba(120, 94, 112, .17); background: rgba(255, 255, 255, .54); box-shadow: 0 10px 28px rgba(67, 45, 59, .055); }
+.compliments li { color: #514853; }
+.detail-card h3, .future-card h3 { color: #433843; font-family: var(--font-display); }
+.chapter-quote blockquote { color: #51404e; font-family: var(--font-display); }
+.chapter-quote figcaption { color: #927d8c; }
+
+.book-controls { color: var(--text-main); }
+.page-button, .reread-button { border: 1px solid rgba(232, 169, 188, .28); border-radius: 999px; background: rgba(255, 255, 255, .055); color: #f4eaf0; transition: transform .24s ease, background .24s ease, border-color .24s ease, box-shadow .24s ease; }
+.page-button:hover:not(:disabled), .reread-button:hover { transform: translateY(-2px); border-color: rgba(242, 195, 207, .62); background: rgba(232, 169, 188, .12); box-shadow: 0 10px 26px rgba(5, 7, 16, .2); }
+.page-button:disabled { opacity: .42; }
+.progress-track { background: rgba(255, 255, 255, .12); }
+.progress-fill { background: linear-gradient(90deg, var(--lavender), var(--sakura), var(--gold)); box-shadow: 0 0 14px rgba(232, 169, 188, .36); }
+.page-number { color: #e2d5de; }
+
+.final-screen { background: radial-gradient(ellipse at 50% 42%, rgba(114, 91, 137, .2), transparent 36%), linear-gradient(155deg, #11131d, #211827); }
+.final-message { color: #eee3eb; font-family: var(--font-display); }
+.heart-word { color: #e8a9bc; text-shadow: 0 0 16px rgba(232, 169, 188, .48); }
+.heart-particles i { background: var(--gold); box-shadow: 0 0 12px rgba(215, 194, 148, .7); }
+.toast { border: 1px solid var(--line-soft); border-radius: 14px; background: rgba(28, 29, 42, .94); color: #f6edf2; box-shadow: var(--shadow-deep); backdrop-filter: blur(16px); }
+
+/* Shared premium treatment for the companion jokes page. */
+.jokes-page { min-height: 100vh; display: grid; place-items: center; padding: 28px 18px; color: var(--text-main); font-family: var(--font-body); background: radial-gradient(ellipse at 50% 12%, rgba(112, 99, 145, .24), transparent 43%), radial-gradient(ellipse at 100% 100%, rgba(145, 83, 118, .14), transparent 38%), var(--ink-night); }
+.jokes-page .card { position: relative; width: min(100%, 660px); text-align: center; animation: card-arrive .75s cubic-bezier(.2,.7,.2,1) both; }
+.jokes-page .card::before { content: "✧"; position: absolute; top: 78px; right: 3%; color: rgba(232, 169, 188, .66); font-size: 1.15rem; animation: star-float 4s ease-in-out infinite; }
+.jokes-page .brand { display: inline-block; margin-bottom: 38px; color: #f8f2f4; font-family: var(--font-display); letter-spacing: .18em; }
+.jokes-page .brand span { color: var(--sakura); }
+.jokes-page .eyebrow { color: var(--gold); letter-spacing: .2em; }
+.jokes-page h1 { color: #fbf4f6; font-family: var(--font-display); font-weight: 400; letter-spacing: -.035em; }
+.jokes-page .intro { color: var(--text-muted); }
+.jokes-page .joke-card { min-height: 240px; border: 1px solid rgba(240, 218, 231, .17); border-radius: 22px; background: linear-gradient(145deg, rgba(41, 38, 55, .86), rgba(29, 28, 42, .9)); box-shadow: var(--shadow-deep), inset 0 1px rgba(255,255,255,.045); backdrop-filter: blur(14px); transition: opacity .25s ease, transform .25s ease, border-color .25s ease; }
+.jokes-page .joke-card::after { content: ""; position: absolute; inset: 9px; border: 1px solid rgba(232, 169, 188, .08); border-radius: 15px; pointer-events: none; }
+.jokes-page .joke-mark { color: var(--sakura); }
+.jokes-page .joke-text { color: #f6edf2; font-family: var(--font-display); }
+.jokes-page .status { color: #c8bdca; }
+.jokes-page button { min-height: 48px; border: 1px solid rgba(245, 230, 239, .16); border-radius: 999px; padding: 0 23px; background: rgba(255,255,255,.055); color: #f6edf2; font: inherit; cursor: pointer; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
+.jokes-page button:hover:not(:disabled) { transform: translateY(-2px); border-color: rgba(242,195,207,.58); background: rgba(232,169,188,.1); box-shadow: 0 9px 24px rgba(5,7,16,.22); }
+.jokes-page button:focus-visible { outline: 2px solid var(--sakura-bright); outline-offset: 4px; }
+.jokes-page button:disabled { opacity: .55; cursor: wait; }
+.jokes-page button.primary { border-color: transparent; background: linear-gradient(125deg, #e8b3c2, #c8b7d8); color: #292330; font-weight: 600; }
+.jokes-page button.primary:hover:not(:disabled) { background: linear-gradient(125deg, #f1c4cf, #d6c6e4); }
+.jokes-page .footnote { color: #a9a0ae; }
+
+@keyframes orbit-breathe { from { transform: scale(.96) rotate(-8deg); opacity: .48; } to { transform: scale(1.04) rotate(8deg); opacity: .9; } }
+@keyframes card-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes star-float { 0%, 100% { transform: translateY(0) rotate(0); opacity: .58; } 50% { transform: translateY(-8px) rotate(12deg); opacity: 1; } }
+@media (max-width: 700px) { .cover::before { width: 92vw; } .cover::after { width: 74vw; } .jokes-page .card::before { right: 0; top: 62px; } }
+@media (prefers-reduced-motion: reduce) { .cover::before, .cover::after, .jokes-page .card, .jokes-page .card::before { animation: none !important; } }

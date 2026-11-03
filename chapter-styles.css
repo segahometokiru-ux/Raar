@@ -1,22 +1,30 @@
-/* Dedicated romantic treatment for the final chapter. */
-.chapter-love-finale{overflow:hidden;background:radial-gradient(ellipse at 50% 34%,rgba(228,166,205,.27),transparent 42%),radial-gradient(ellipse at 82% 78%,rgba(163,137,211,.16),transparent 42%),linear-gradient(135deg,#f7edf3,#f0eaf4 58%,#ece9f3)}
-.chapter-love-finale .chapter-topline{border-color:rgba(151,111,145,.24);color:#887187}
-.chapter-love-finale .chapter-kicker{color:#a67b9d!important}
-.chapter-love-finale .chapter-copy{width:min(790px,100%);text-align:center}
-.chapter-love-finale .chapter-copy h1{margin-bottom:5px;font-size:clamp(1.9rem,5vw,3.8rem)}
-.chapter-love-finale .chapter-copy h1 em{color:#a1689a}
-.chapter-love-finale .chapter-copy>p:not(.chapter-kicker){max-width:700px;margin:0 auto 9px;color:#625362;font-size:clamp(.8rem,1.35vw,.98rem);line-height:1.48}
-.chapter-love-finale .chapter-ornament{color:rgba(162,104,154,.12)}
-.love-finale-art{position:relative;display:grid;width:clamp(100px,17vh,145px);height:clamp(83px,14vh,120px);place-items:center;margin:0 auto 7px;isolation:isolate}
-.love-big-heart{position:relative;z-index:1;color:#c47ba9;font-family:Georgia,serif;font-size:clamp(5rem,15vh,8rem);line-height:.9;text-shadow:0 0 12px rgba(212,137,190,.4),0 0 32px rgba(167,113,188,.32);animation:love-heart-glow 3.2s ease-in-out infinite}
-.love-star,.sakura-petal{position:absolute;z-index:2;animation:love-float 3.8s ease-in-out infinite alternate}
-.love-star{color:#9877b3;text-shadow:0 0 10px rgba(171,132,205,.75)}
-.love-star-one{left:7%;top:24%;font-size:1.1rem}.love-star-two{right:7%;top:13%;font-size:.9rem;animation-delay:-1.3s}.love-star-three{right:18%;bottom:1%;font-size:.7rem;animation-delay:-2.2s}
-.sakura-petal{color:#e1a3c4;font-size:1.12rem;text-shadow:0 0 9px rgba(222,158,195,.5)}
-.petal-one{left:3%;bottom:5%;animation-delay:-.8s}.petal-two{right:0;bottom:32%;font-size:.8rem;animation-delay:-1.8s}.petal-three{left:23%;top:0;font-size:.72rem;animation-delay:-2.4s}.petal-four{right:24%;top:3%;font-size:.78rem;animation-delay:-1.1s}.petal-five{left:0;top:43%;font-size:.7rem;animation-delay:-2.8s}
-.chapter-love-finale .closing-line{max-width:680px;margin:clamp(8px,1.5vh,16px) auto 0!important;color:#915f89!important;font-family:"Playfair Display",Georgia,serif;font-size:clamp(.92rem,2vw,1.27rem)!important;font-style:italic;line-height:1.4;text-align:center}
-@keyframes love-heart-glow{0%,100%{transform:scale(.97);filter:drop-shadow(0 0 5px rgba(224,143,194,.35))}50%{transform:scale(1.055);filter:drop-shadow(0 0 18px rgba(177,127,204,.65))}}
-@keyframes love-float{from{transform:translate3d(0,5px,0) rotate(-8deg);opacity:.66}to{transform:translate3d(0,-7px,0) rotate(12deg);opacity:1}}
-@media(max-width:700px){.chapter-love-finale .chapter-copy{width:100%}.chapter-love-finale .chapter-copy h1{font-size:clamp(1.72rem,7vw,2.4rem);line-height:1.08;margin-bottom:4px}.chapter-love-finale .chapter-copy>p:not(.chapter-kicker){font-size:clamp(.72rem,3vw,.84rem);line-height:1.38;margin-bottom:7px}.love-finale-art{width:clamp(82px,13vh,108px);height:clamp(67px,11vh,90px);margin-bottom:5px}.love-big-heart{font-size:clamp(4.5rem,13vh,6rem)}.sakura-petal{font-size:.9rem}.chapter-love-finale .closing-line{font-size:clamp(.82rem,3.25vw,1rem)!important;line-height:1.3}}
-@media(max-height:700px){.love-finale-art{height:65px;width:78px;margin-bottom:2px}.love-big-heart{font-size:4.7rem}.chapter-love-finale .chapter-copy>p:not(.chapter-kicker){line-height:1.3;margin-bottom:5px}}
-@media(prefers-reduced-motion:reduce){.love-big-heart,.love-star,.sakura-petal{animation:none!important}}
+/* Shared visual language and chapter atmospheres for OUR STORY. */
+@import url("./chapter-atmospheres.css");
+@import url("./premium-theme.css");
+
+.chapter-love-finale { overflow: hidden; background: radial-gradient(ellipse at 50% 34%, rgba(228,166,205,.27), transparent 42%), radial-gradient(ellipse at 82% 78%, rgba(163,137,211,.16), transparent 42%), linear-gradient(145deg,#f8edf1,#f0eaf3 55%,#eee9f0); }
+.chapter-love-finale .chapter-topline { border-color: rgba(151,111,145,.24); color: #887187; }
+.chapter-love-finale .chapter-kicker { color: #a67b9d !important; }
+.chapter-love-finale .chapter-copy { width: min(790px,100%); text-align: center; }
+.chapter-love-finale .chapter-copy h1 { margin-bottom: 5px; font-size: clamp(1.9rem,5vw,3.8rem); }
+.chapter-love-finale .chapter-copy h1 em { color: #a1689a; }
+.chapter-love-finale .chapter-copy > p:not(.chapter-kicker) { max-width: 700px; margin: 0 auto 9px; color: #625362; font-size: clamp(.8rem,1.35vw,.98rem); line-height: 1.48; }
+.chapter-love-finale .chapter-ornament { color: rgba(162,104,154,.12); }
+.love-finale-art { position: relative; display: grid; width: clamp(100px,17vh,145px); height: clamp(83px,14vh,120px); place-items: center; margin: 0 auto 7px; isolation: isolate; }
+.love-big-heart { position: relative; z-index: 1; color: #c47ba9; font-family: Georgia,serif; font-size: clamp(5rem,15vh,8rem); line-height: .9; text-shadow: 0 0 12px rgba(212,137,190,.4),0 0 32px rgba(167,113,190,.27); animation: love-heart-glow 3.2s ease-in-out infinite; }
+.love-star, .sakura-petal { position: absolute; z-index: 2; animation: love-float 3.8s ease-in-out infinite alternate; }
+.love-star { color: #9877b3; text-shadow: 0 0 10px rgba(171,132,205,.75); }
+.love-star-one { left: 7%; top: 24%; font-size: 1.1rem; }
+.love-star-two { right: 7%; top: 13%; font-size: .9rem; animation-delay: -1.3s; }
+.love-star-three { right: 18%; bottom: 1%; font-size: .7rem; animation-delay: -2.2s; }
+.sakura-petal { color: #e1a3c4; font-size: 1.12rem; text-shadow: 0 0 9px rgba(222,158,195,.5); }
+.petal-one { left: 3%; bottom: 5%; animation-delay: -.8s; }
+.petal-two { right: 0; bottom: 32%; font-size: .8rem; animation-delay: -1.8s; }
+.petal-three { left: 23%; top: 0; font-size: .72rem; animation-delay: -2.4s; }
+.petal-four { right: 24%; top: 6%; font-size: .82rem; animation-delay: -1.1s; }
+.chapter-love-finale .closing-line { max-width: 680px; margin: clamp(8px,1.5vh,16px) auto 0 !important; color: #915f89 !important; font-family: "Playfair Display",Georgia,serif; font-size: clamp(.92rem,2vw,1.2rem); font-style: italic; }
+@keyframes love-heart-glow { 0%,100% { transform: scale(.97); filter: drop-shadow(0 0 5px rgba(224,143,194,.35)); } 50% { transform: scale(1.055); filter: drop-shadow(0 0 18px rgba(177,127,204,.65)); } }
+@keyframes love-float { from { transform: translate3d(0,5px,0) rotate(-8deg); opacity: .66; } to { transform: translate3d(0,-7px,0) rotate(12deg); opacity: 1; } }
+@media (max-width: 700px) { .chapter-love-finale .chapter-copy { width: 100%; } .chapter-love-finale .chapter-copy h1 { font-size: clamp(1.72rem,7vw,2.4rem); line-height: 1.08; margin-bottom: 4px; } .chapter-love-finale .chapter-copy > p:not(.chapter-kicker) { font-size: .78rem; line-height: 1.38; } .love-finale-art { margin-bottom: 3px; } }
+@media (max-height: 700px) { .love-finale-art { height: 65px; width: 78px; margin-bottom: 2px; } .love-big-heart { font-size: 4.7rem; } .chapter-love-finale .chapter-copy > p:not(.chapter-kicker) { line-height: 1.3; margin-bottom: 5px; } }
+@media (prefers-reduced-motion: reduce) { .love-big-heart, .love-star, .sakura-petal { animation: none !important; } }
