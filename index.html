@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#100b1b">
-  <meta name="description" content="OUR STORY — личное романтическое письмо, галерея и история вашей любви.">
-  <title>OUR STORY — для тебя</title>
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="OUR STORY — наша история, бережно собранная в книгу.">
+  <title>OUR STORY — наша история</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -18,77 +18,46 @@
 
   <section class="cover" id="cover" aria-labelledby="cover-title">
     <div class="cover-content">
-      <p class="eyebrow">НАША МАЛЕНЬКАЯ ВСЕЛЕННАЯ</p>
-      <h1 id="cover-title">Для тебя <span aria-hidden="true">♡</span></h1>
-      <p class="cover-subtitle">У меня есть кое-что особенное...</p>
-      <button class="envelope-button" id="openEnvelope" type="button" aria-label="Открыть конверт для тебя">
+      <p class="cover-kicker">ОДНА ИСТОРИЯ · ДВА СЕРДЦА</p>
+      <h1 id="cover-title">OUR <span>STORY</span></h1>
+      <p class="cover-subtitle">История, которую хочется беречь</p>
+      <button class="envelope-button" id="openEnvelope" type="button" aria-label="Нажми, чтобы открыть нашу историю">
         <span class="envelope" aria-hidden="true">
-          <span class="envelope-letter"><span>с любовью</span><span class="letter-heart">♥</span></span>
+          <span class="envelope-letter"><span>наша история</span><span class="letter-heart">♥</span></span>
           <span class="envelope-back"></span><span class="envelope-flap"></span>
-          <span class="envelope-front"></span><span class="envelope-seal">♥</span>
+          <span class="envelope-front"></span><span class="envelope-seal">♡</span>
         </span>
         <span class="envelope-hint">Нажми, чтобы открыть</span>
       </button>
-      <p class="cover-note">Сделано с любовью — только для тебя</p>
+      <p class="cover-note">СОЗДАНО С ТЕПЛОМ И НЕЖНОСТЬЮ</p>
     </div>
   </section>
 
-  <div class="site" id="site" hidden>
-    <header class="topbar">
-      <a class="wordmark" href="#home" aria-label="OUR STORY — наверх">OUR <span>STORY</span></a>
-      <nav class="navigation" aria-label="Главная навигация">
-        <a href="#letter">Письмо</a><a href="#gallery">Моменты</a><a href="#story">История</a>
-      </nav>
-      <button class="music-button" id="musicToggle" type="button" aria-pressed="false" aria-label="Включить музыку"><span aria-hidden="true">♫</span><span class="music-label">Музыка</span></button>
+  <main class="book-stage" id="bookStage" hidden>
+    <header class="book-header">
+      <a class="wordmark" href="#book" aria-label="OUR STORY">OUR <span>STORY</span></a>
+      <span class="edition">НАША ИСТОРИЯ · ЛИЧНОЕ ИЗДАНИЕ</span>
+      <button class="music-button" id="musicToggle" type="button" aria-pressed="false" aria-label="Включить музыку"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">Музыка</span></button>
     </header>
+    <section class="book" id="book" aria-label="Интерактивная книга нашей истории">
+      <div class="book-spine" aria-hidden="true"></div>
+      <div class="page-paper" id="pagePaper" aria-live="polite"></div>
+      <div class="book-controls">
+        <button class="page-button previous-button" id="previousPage" type="button" aria-label="Предыдущая страница">← <span>Назад</span></button>
+        <div class="page-meta"><span class="page-number" id="pageNumber">01 / 07</span><div class="progress-track" role="progressbar" aria-label="Прогресс чтения" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"><span id="progressFill"></span></div></div>
+        <button class="page-button next-button" id="nextPage" type="button" aria-label="Следующая страница"><span>Далее</span> →</button>
+      </div>
+      <p class="swipe-hint" aria-hidden="true">На телефоне можно листать свайпом</p>
+    </section>
+  </main>
 
-    <main id="home">
-      <section class="hero reveal" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">ДЛЯ МОЕГО ЛЮБИМОГО ЧЕЛОВЕКА</p>
-          <h1 id="hero-title">История,<br>которая <em>наша.</em></h1>
-          <p class="hero-text">Несколько слов, фотографий и воспоминаний — чтобы напомнить, как много ты для меня значишь.</p>
-          <a class="text-link" href="#letter">Открыть наше письмо <span aria-hidden="true">↘</span></a>
-        </div>
-        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-heart">♥</div><span class="hero-sparkle sparkle-one">✦</span><span class="hero-sparkle sparkle-two">✧</span><span class="hero-caption">ты — моё любимое место</span></div>
-        <span class="hero-index" aria-hidden="true">01 — БЕСКОНЕЧНОСТЬ</span>
-      </section>
+  <section class="final-screen" id="finalScreen" aria-label="Финал нашей истории" hidden>
+    <div class="heart-words" id="heartWords" aria-hidden="true"></div>
+    <button class="reread-button" id="rereadButton" type="button">Перечитать историю</button>
+  </section>
 
-      <section class="section letter-section reveal" id="letter" aria-labelledby="letter-title">
-        <div class="section-intro"><p class="eyebrow">САМЫЕ ВАЖНЫЕ СЛОВА</p><h2 id="letter-title">Моей <em>любимой</em></h2><p>Письмо, которое можно перечитывать.</p></div>
-        <article class="letter-card"><div class="letter-topline"><span>ЛИЧНОЕ ПИСЬМО</span><span aria-hidden="true">♡</span></div><div class="letter-copy" id="letterCopy" aria-live="polite"></div><p class="signature" id="letterSignature"></p><span class="letter-watermark" aria-hidden="true">люблю</span></article>
-      </section>
-
-      <section class="section gallery-section reveal" id="gallery" aria-labelledby="gallery-title">
-        <div class="section-intro"><p class="eyebrow">КАДРЫ, КОТОРЫЕ ХРАНИМ</p><h2 id="gallery-title">Наши <em>моменты</em></h2><p>Каждый снимок — маленькая вселенная. Нажми на фото, чтобы рассмотреть его.</p></div>
-        <div class="gallery-grid" id="galleryGrid" aria-label="Фотогалерея"></div>
-        <p class="gallery-note">Добавь свои фотографии в папку <code>images/</code> — и они появятся здесь.</p>
-      </section>
-
-      <section class="section story-section reveal" id="story" aria-labelledby="story-title">
-        <div class="section-intro"><p class="eyebrow">ШАГ ЗА ШАГОМ</p><h2 id="story-title">Наша <em>история</em></h2><p>Самые дорогие главы мы напишем сами.</p></div>
-        <div class="timeline" id="timeline"></div>
-      </section>
-
-      <section class="final-section reveal" id="final" aria-labelledby="final-title">
-        <div class="final-stars" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>♡</span><span>✧</span></div>
-        <p class="eyebrow">ИЗ ВСЕХ ИСТОРИЙ — МОЯ ЛЮБИМАЯ</p>
-        <div class="final-heart" aria-hidden="true">♥</div>
-        <h2 id="final-title">Я счастлив,<br>что ты есть <em>в моей жизни.</em></h2>
-        <p class="final-subtitle">И это только начало нашей истории...</p>
-        <a class="final-link" href="#home">С любовью, всегда <span aria-hidden="true">↑</span></a>
-      </section>
-    </main>
-    <footer class="footer"><span>OUR STORY</span><span>Создано с любовью ♡</span><a href="#home">Наверх ↑</a></footer>
-  </div>
-
-  <audio id="backgroundMusic" src="audio/our-song.mp3" preload="none" loop></audio>
+  <audio id="trackOne" src="audio/oslepitelnaya.mp3" preload="none"></audio>
+  <audio id="trackTwo" src="audio/rayskie-cvety.mp3" preload="none"></audio>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографии">
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть фотографию">×</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Предыдущее фото">‹</button>
-    <figure><img id="lightboxImage" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Следующее фото">›</button>
-  </dialog>
 </body>
 </html>

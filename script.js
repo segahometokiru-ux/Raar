@@ -1,156 +1,191 @@
-/* Personalize the letter, gallery captions and timeline here. No server or personal data collection is used. */
-const LETTER_PARAGRAPHS = [
-  "Я хочу сказать тебе самые важные слова — спасибо, что ты есть. Рядом с тобой в моём сердце становится больше тепла, нежности и света.",
-  "Я дорожу каждым моментом, который мы разделяем, и всем тем, что ещё ждёт нас впереди. Пусть в нашей истории всегда будет место заботе, смеху и маленьким радостям.",
-  "Я выбираю тебя — сегодня и каждый новый день. Пусть это письмо напоминает: ты очень любима."
-];
-const LETTER_SIGNATURE = "С любовью, всегда — твой человек";
-
-// Замените подписи на ваши. Сами снимки: images/photo1.jpg … images/photo10.jpg.
-const GALLERY_ITEMS = [
-  { src: "images/photo1.jpg", caption: "Один из наших любимых моментов", alt: "Фотография 1 — замените на ваше фото" },
-  { src: "images/photo2.jpg", caption: "Маленькое счастье быть рядом", alt: "Фотография 2 — замените на ваше фото" },
-  { src: "images/photo3.jpg", caption: "Момент, который хочется сохранить", alt: "Фотография 3 — замените на ваше фото" },
-  { src: "images/photo4.jpg", caption: "Тёплое воспоминание о нас", alt: "Фотография 4 — замените на ваше фото" },
-  { src: "images/photo5.jpg", caption: "Ещё одна глава нашей истории", alt: "Фотография 5 — замените на ваше фото" },
-  { src: "images/photo6.jpg", caption: "Счастье в простых мгновениях", alt: "Фотография 6 — замените на ваше фото" },
-  { src: "images/photo7.jpg", caption: "Наш мир, такой особенный", alt: "Фотография 7 — замените на ваше фото" },
-  { src: "images/photo8.jpg", caption: "Хочу помнить это всегда", alt: "Фотография 8 — замените на ваше фото" },
-  { src: "images/photo9.jpg", caption: "Мгновение только для нас", alt: "Фотография 9 — замените на ваше фото" },
-  { src: "images/photo10.jpg", caption: "И ещё одно любимое воспоминание", alt: "Фотография 10 — замените на ваше фото" }
-];
-
-// Заполните только вашими датами и воспоминаниями. Пустые поля не показываются.
-const STORY_ITEMS = [
-  { date: "", title: "", memory: "" },
-  { date: "", title: "", memory: "" },
-  { date: "", title: "", memory: "" }
+const CHAPTERS = [
+  {
+    label: "ГЛАВА ПЕРВАЯ",
+    title: "Наше <em>знакомство</em>",
+    paragraphs: [
+      "Мы познакомились в школе, на уроке чувашского языка. Точную дату я уже не помню.",
+      "Ты подошла ко мне, потому что услышала, как я говорю о «Магической битве». Так началась наша история."
+    ],
+    ornament: "01"
+  },
+  {
+    label: "ГЛАВА ВТОРАЯ",
+    title: "Первое <em>впечатление</em>",
+    paragraphs: [
+      "Ты сразу показалась мне очень красивой. И сейчас я думаю о тебе так же.",
+      "Но больше всего меня впечатлило то, как ты умеешь поддерживать, помогать и быть рядом."
+    ],
+    ornament: "02"
+  },
+  {
+    label: "ГЛАВА ТРЕТЬЯ",
+    title: "Первые <em>разговоры</em>",
+    paragraphs: [
+      "Первой заговорила именно ты. Кажется, мы обсуждали «Магическую битву», запечатывание Годжо и события аниме.",
+      "Кто бы мог подумать, что обычный разговор станет началом такой важной истории."
+    ],
+    ornament: "03"
+  },
+  {
+    label: "ГЛАВА ЧЕТВЁРТАЯ",
+    title: "Спасибо <em>тебе</em>",
+    paragraphs: [
+      "Спасибо за твою поддержку, терпение и заботу.",
+      "Ты стала для меня очень родным человеком. Рядом с тобой я чувствую тепло и спокойствие. Я очень ценю всё, что ты для меня делаешь.",
+      "Я не всегда умею правильно выразить благодарность, но хочу, чтобы ты знала: твоё присутствие в моей жизни очень много значит."
+    ],
+    ornament: "04"
+  },
+  {
+    label: "ГЛАВА ПЯТАЯ",
+    title: "Несколько слов <em>о тебе</em>",
+    compliments: [
+      "Ты невероятно добрая.",
+      "Ты умеешь делать обычный день светлее.",
+      "В тебе столько тепла и искренности.",
+      "Ты сильная, заботливая и настоящая.",
+      "Я очень рад, что знаю тебя."
+    ],
+    ornament: "05"
+  },
+  {
+    label: "ГЛАВА ШЕСТАЯ",
+    title: "Тогда <em>и сейчас</em>",
+    paragraphs: [
+      "Ты была для меня особенной с самого начала.",
+      "Тогда я замечал в тебе что-то невероятное — и с тех пор это чувство никуда не исчезло.",
+      "Если честно, в те времена ты казалась мне особенно прекрасной. Но и сейчас для меня в тебе есть что-то совершенно неповторимое."
+    ],
+    photo: { title: "Место для вашего снимка", path: "images/then-and-now.jpg" },
+    ornament: "06"
+  },
+  {
+    label: "ГЛАВА СЕДЬМАЯ",
+    title: "Продолжение нашей <em>истории</em>",
+    paragraphs: [
+      "Спасибо, что однажды появилась в моей жизни.",
+      "Спасибо за разговоры, поддержку, воспоминания и за то, что ты просто есть.",
+      "Я надеюсь, впереди у нас ещё много моментов, над которыми мы будем смеяться, которые будем вспоминать и бережно хранить.",
+      "Пусть эта история продолжается. Ведь самые важные главы, возможно, ещё впереди."
+    ],
+    photo: { title: "Место для ещё одного воспоминания", path: "images/our-story.jpg" },
+    ornament: "07"
+  }
 ];
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+let currentPage = 0;
+let isTurning = false;
 let toastTimer;
-let activePhotoIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 function showToast(message) {
   const toast = $("#toast");
   toast.textContent = message;
   toast.classList.add("visible");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("visible"), 3200);
+  toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 3000);
 }
 
-function renderLetter() {
-  const container = $("#letterCopy");
-  LETTER_PARAGRAPHS.forEach((text, index) => {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = text;
-    paragraph.style.animationDelay = `${index * 180}ms`;
-    container.appendChild(paragraph);
-  });
-  $("#letterSignature").textContent = LETTER_SIGNATURE;
+function chapterMarkup(chapter) {
+  const paragraphs = (chapter.paragraphs || []).map((text) => `<p>${escapeHTML(text)}</p>`).join("");
+  const compliments = chapter.compliments
+    ? `<ul class="compliments">${chapter.compliments.map((text, index) => `<li style="--item:${index}">${escapeHTML(text)}</li>`).join("")}</ul>`
+    : "";
+  const photo = chapter.photo
+    ? `<figure class="photo-frame"><div class="photo-placeholder" role="img" aria-label="Пустая рамка для фотографии"><span class="photo-mark" aria-hidden="true">✳</span><span>${escapeHTML(chapter.photo.title)}</span><small>${escapeHTML(chapter.photo.path)}</small></div><figcaption>ОДИН КАДР — ЦЕЛАЯ ГЛАВА</figcaption></figure>`
+    : "";
+  return `<article class="chapter-content"><div class="chapter-topline"><span>${chapter.label}</span><span>OUR STORY</span></div><div class="chapter-copy"><p class="chapter-kicker">ИЗ НАШИХ ВОСПОМИНАНИЙ</p><h1>${chapter.title}</h1>${paragraphs}${compliments}${photo}</div><span class="chapter-ornament" aria-hidden="true">${chapter.ornament}</span><span class="page-corner" aria-hidden="true">♡</span></article>`;
 }
 
-function renderGallery() {
-  const grid = $("#galleryGrid");
-  GALLERY_ITEMS.forEach((photo, index) => {
-    const figure = document.createElement("figure");
-    figure.className = "gallery-card";
-    const button = document.createElement("button");
-    button.className = "photo-button";
-    button.type = "button";
-    button.setAttribute("aria-label", `Открыть фото ${index + 1}: ${photo.caption}`);
-    const placeholder = document.createElement("span");
-    placeholder.className = "photo-placeholder";
-    placeholder.setAttribute("aria-hidden", "true");
-    const placeholderHeart = document.createElement("span");
-    placeholderHeart.textContent = "♡";
-    placeholder.append(placeholderHeart);
-    const image = document.createElement("img");
-    image.src = photo.src;
-    image.alt = photo.alt;
-    image.loading = "lazy";
-    image.addEventListener("load", () => image.classList.add("loaded"), { once: true });
-    image.addEventListener("error", () => image.remove(), { once: true });
-    button.append(image, placeholder);
-    button.addEventListener("click", () => openLightbox(index));
-    const caption = document.createElement("figcaption");
-    caption.textContent = photo.caption;
-    figure.append(button, caption);
-    grid.append(figure);
-  });
+function escapeHTML(value) {
+  return value.replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
 }
 
-function renderTimeline() {
-  const timeline = $("#timeline");
-  const entries = STORY_ITEMS.filter((item) => item.date.trim() || item.title.trim() || item.memory.trim());
-  if (!entries.length) {
-    const note = document.createElement("article");
-    note.className = "timeline-item";
-    const title = document.createElement("h3");
-    title.textContent = "Эта глава ждёт ваших слов";
-    const memory = document.createElement("p");
-    memory.textContent = "Добавьте даты, события и ваши воспоминания в массив STORY_ITEMS в файле script.js — здесь появится ваша личная временная линия.";
-    note.append(title, memory);
-    timeline.append(note);
+function renderPage(index, direction = 0) {
+  currentPage = index;
+  const paper = $("#pagePaper");
+  paper.innerHTML = chapterMarkup(CHAPTERS[index]);
+  paper.classList.remove("turn-forward", "turn-back", "page-enter");
+  void paper.offsetWidth;
+  paper.classList.add(direction > 0 ? "turn-forward" : direction < 0 ? "turn-back" : "page-enter");
+  $("#pageNumber").textContent = `${String(index + 1).padStart(2, "0")} / ${String(CHAPTERS.length).padStart(2, "0")}`;
+  $("#progressFill").style.width = `${((index + 1) / CHAPTERS.length) * 100}%`;
+  $(".progress-track").setAttribute("aria-valuenow", String(index + 1));
+  $("#previousPage").disabled = index === 0;
+  $("#nextPage").innerHTML = index === CHAPTERS.length - 1 ? '<span>Завершить</span> <span aria-hidden="true">♡</span>' : '<span>Далее</span> <span aria-hidden="true">→</span>';
+  $("#nextPage").setAttribute("aria-label", index === CHAPTERS.length - 1 ? "Завершить историю" : "Следующая страница");
+  if (index === 4) {
+    $$(".compliments li", paper).forEach((item, itemIndex) => {
+      item.style.animationDelay = `${itemIndex * 420 + 180}ms`;
+    });
+  }
+}
+
+function turnPage(direction) {
+  if (isTurning) return;
+  const next = currentPage + direction;
+  if (next < 0) return;
+  if (next >= CHAPTERS.length) {
+    showFinal();
     return;
   }
-  entries.forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "timeline-item";
-    if (item.date.trim()) {
-      const date = document.createElement("span");
-      date.className = "timeline-date";
-      date.textContent = item.date;
-      card.append(date);
+  isTurning = true;
+  const paper = $("#pagePaper");
+  paper.classList.remove("turn-forward", "turn-back", "page-enter");
+  paper.classList.add(direction > 0 ? "turn-forward" : "turn-back");
+  window.setTimeout(() => {
+    renderPage(next, direction);
+    window.setTimeout(() => { isTurning = false; }, 540);
+  }, 250);
+}
+
+function showFinal() {
+  const finalScreen = $("#finalScreen");
+  finalScreen.hidden = false;
+  requestAnimationFrame(() => finalScreen.classList.add("visible"));
+  $("#bookStage").hidden = true;
+  document.body.classList.add("final-active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function reread() {
+  const finalScreen = $("#finalScreen");
+  finalScreen.classList.remove("visible");
+  window.setTimeout(() => {
+    finalScreen.hidden = true;
+    document.body.classList.remove("final-active");
+    $("#bookStage").hidden = false;
+    renderPage(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 500);
+}
+
+function createHeartWords() {
+  const container = $("#heartWords");
+  const points = [];
+  for (let y = -1.15; y <= 1.15; y += 0.145) {
+    for (let x = -1.25; x <= 1.25; x += 0.13) {
+      const heart = (x * x + y * y - 1) ** 3 - x * x * y * y * y;
+      if (heart <= 0) points.push({ x, y });
     }
-    if (item.title.trim()) {
-      const title = document.createElement("h3");
-      title.textContent = item.title;
-      card.append(title);
-    }
-    if (item.memory.trim()) {
-      const memory = document.createElement("p");
-      memory.textContent = item.memory;
-      card.append(memory);
-    }
-    timeline.append(card);
+  }
+  points.forEach((point, index) => {
+    const word = document.createElement("span");
+    word.className = "heart-word";
+    word.textContent = "люблю";
+    word.style.setProperty("--x", `${point.x * 47}%`);
+    word.style.setProperty("--y", `${point.y * 44}%`);
+    word.style.setProperty("--delay", `${(index % 17) * 45}ms`);
+    container.append(word);
   });
-}
-
-function openLightbox(index) {
-  activePhotoIndex = index;
-  updateLightbox();
-  const dialog = $("#lightbox");
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else dialog.setAttribute("open", "");
-  document.body.classList.add("no-scroll");
-}
-
-function updateLightbox() {
-  const photo = GALLERY_ITEMS[activePhotoIndex];
-  const image = $("#lightboxImage");
-  image.src = photo.src;
-  image.alt = photo.alt;
-  image.onerror = () => { image.removeAttribute("src"); };
-  $("#lightboxCaption").textContent = photo.caption;
-}
-
-function closeLightbox() {
-  const dialog = $("#lightbox");
-  if (typeof dialog.close === "function" && dialog.open) dialog.close();
-  else dialog.removeAttribute("open");
-  document.body.classList.remove("no-scroll");
-}
-
-function changePhoto(direction) {
-  activePhotoIndex = (activePhotoIndex + direction + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-  updateLightbox();
 }
 
 function initStars() {
   const field = $("#stars");
-  const count = window.matchMedia("(max-width: 600px)").matches ? 35 : 65;
+  const count = window.matchMedia("(max-width: 600px)").matches ? 28 : 52;
   for (let index = 0; index < count; index += 1) {
     const star = document.createElement("i");
     star.className = "star";
@@ -158,9 +193,45 @@ function initStars() {
     star.style.left = `${Math.random() * 100}%`;
     star.style.top = `${Math.random() * 100}%`;
     star.style.animationDelay = `${(Math.random() * 5).toFixed(2)}s`;
-    star.style.opacity = `${(0.25 + Math.random() * 0.7).toFixed(2)}`;
     field.append(star);
   }
+}
+
+function initMusic() {
+  const tracks = [$("#trackOne"), $("#trackTwo")];
+  const button = $("#musicToggle");
+  let trackIndex = 0;
+  let enabled = false;
+  const syncButton = () => {
+    button.setAttribute("aria-pressed", String(enabled));
+    button.setAttribute("aria-label", enabled ? "Выключить музыку" : "Включить музыку");
+    button.classList.toggle("is-playing", enabled);
+  };
+  const playCurrent = async () => {
+    try {
+      await tracks[trackIndex].play();
+      enabled = true;
+      syncButton();
+    } catch (error) {
+      enabled = false;
+      syncButton();
+      showToast(`Добавьте аудиофайл: ${trackIndex === 0 ? "audio/oslepitelnaya.mp3" : "audio/rayskie-cvety.mp3"}`);
+    }
+  };
+  tracks.forEach((track, index) => track.addEventListener("ended", () => {
+    trackIndex = (index + 1) % tracks.length;
+    if (enabled) playCurrent();
+  }));
+  button.addEventListener("click", () => {
+    if (enabled) {
+      tracks.forEach((track) => track.pause());
+      enabled = false;
+      syncButton();
+      return;
+    }
+    playCurrent();
+  });
+  return () => { trackIndex = 0; playCurrent(); };
 }
 
 function initTelegram() {
@@ -169,10 +240,9 @@ function initTelegram() {
   try {
     app.ready();
     app.expand();
-    app.setHeaderColor?.("#100b1b");
-    app.setBackgroundColor?.("#100b1b");
-    app.setBottomBarColor?.("#100b1b");
-    // Пользовательские данные Telegram не запрашиваются и не отправляются.
+    app.setHeaderColor?.("#10110f");
+    app.setBackgroundColor?.("#10110f");
+    app.setBottomBarColor?.("#10110f");
   } catch (error) {
     console.info("Telegram WebApp display setup was unavailable.", error);
   }
@@ -180,72 +250,40 @@ function initTelegram() {
 
 function init() {
   initStars();
-  renderLetter();
-  renderGallery();
-  renderTimeline();
+  createHeartWords();
   initTelegram();
-
+  renderPage(0);
+  const startMusic = initMusic();
   const cover = $("#cover");
-  const site = $("#site");
-  const envelopeButton = $("#openEnvelope");
-  envelopeButton.addEventListener("click", () => {
-    if (envelopeButton.classList.contains("opened")) return;
-    envelopeButton.classList.add("opened");
-    envelopeButton.setAttribute("aria-expanded", "true");
+  const openButton = $("#openEnvelope");
+  openButton.addEventListener("click", () => {
+    if (openButton.classList.contains("opened")) return;
+    openButton.classList.add("opened");
+    openButton.setAttribute("aria-expanded", "true");
     window.setTimeout(() => {
-      site.hidden = false;
+      $("#bookStage").hidden = false;
       cover.classList.add("dismissed");
-      document.body.classList.remove("no-scroll");
-      window.setTimeout(() => {
-        cover.hidden = true;
-        $("#letter").scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 850);
-    }, 850);
+      startMusic();
+      window.setTimeout(() => { cover.hidden = true; }, 850);
+    }, 750);
   });
-  document.body.classList.add("no-scroll");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  $$(".reveal").forEach((section) => observer.observe(section));
-
-  const music = $("#backgroundMusic");
-  const musicButton = $("#musicToggle");
-  musicButton.addEventListener("click", async () => {
-    if (!music.paused) {
-      music.pause();
-      musicButton.setAttribute("aria-pressed", "false");
-      musicButton.setAttribute("aria-label", "Включить музыку");
-      showToast("Музыка выключена");
-      return;
-    }
-    try {
-      await music.play();
-      musicButton.setAttribute("aria-pressed", "true");
-      musicButton.setAttribute("aria-label", "Выключить музыку");
-      showToast("Музыка включена ♫");
-    } catch (error) {
-      showToast("Добавьте свою композицию: audio/our-song.mp3");
-    }
-  });
-
-  $("#lightboxClose").addEventListener("click", closeLightbox);
-  $("#lightboxPrev").addEventListener("click", () => changePhoto(-1));
-  $("#lightboxNext").addEventListener("click", () => changePhoto(1));
-  $("#lightbox").addEventListener("click", (event) => {
-    if (event.target === $("#lightbox")) closeLightbox();
-  });
-  $("#lightbox").addEventListener("close", () => document.body.classList.remove("no-scroll"));
+  $("#previousPage").addEventListener("click", () => turnPage(-1));
+  $("#nextPage").addEventListener("click", () => turnPage(1));
+  $("#rereadButton").addEventListener("click", reread);
+  const book = $("#book");
+  book.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+    touchStartY = event.changedTouches[0].clientY;
+  }, { passive: true });
+  book.addEventListener("touchend", (event) => {
+    const dx = event.changedTouches[0].clientX - touchStartX;
+    const dy = event.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.25) turnPage(dx < 0 ? 1 : -1);
+  }, { passive: true });
   document.addEventListener("keydown", (event) => {
-    if (!$("#lightbox").open) return;
-    if (event.key === "ArrowLeft") changePhoto(-1);
-    if (event.key === "ArrowRight") changePhoto(1);
-    if (event.key === "Escape") document.body.classList.remove("no-scroll");
+    if ($("#bookStage").hidden || event.target.matches("button, a")) return;
+    if (event.key === "ArrowRight") turnPage(1);
+    if (event.key === "ArrowLeft") turnPage(-1);
   });
 }
 
