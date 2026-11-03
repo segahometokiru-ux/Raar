@@ -1,222 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Our Story — романтический сайт-подарок для годовщины отношений."
-    />
-    <title>Our Story</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="stars" aria-hidden="true"></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b1b">
+  <meta name="description" content="OUR STORY — личное романтическое письмо, галерея и история вашей любви.">
+  <title>OUR STORY — для тебя</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><div class="stars" id="stars"></div><div class="ambient-glow"></div></div>
 
-    <div class="page-shell">
-      <header class="topbar">
-        <a href="#top" class="brand" aria-label="Главная Our Story">Our Story</a>
-        <nav class="nav" aria-label="Навигация сайта">
-          <a href="#letter">Письмо</a>
-          <a href="#gallery">Галерея</a>
-          <a href="#story">История</a>
-          <a href="#final">Любовь</a>
-        </nav>
-      </header>
-
-      <main id="top">
-        <section class="hero">
-          <div class="hero-content">
-            <p class="eyebrow">Для тебя</p>
-            <h1>Наша история продолжается</h1>
-            <p class="subtitle">
-              С каждым днём любовь становится теплее, красивее и глубже. Эта
-              страница — маленькое пространство для наших моментов, любви и
-              счастья.
-            </p>
-            <div class="hero-actions">
-              <button class="primary-btn" data-scroll="#letter">Читать письмо</button>
-              <button class="secondary-btn" data-scroll="#gallery">Посмотреть галерею</button>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-hidden="true">
-            <div class="glow-ring"></div>
-            <div class="heart-orb">❤</div>
-          </div>
-        </section>
-
-        <section id="letter" class="envelope-section">
-          <div class="section-heading">
-            <p class="eyebrow">С любовью</p>
-            <h2>Письмо для тебя</h2>
-          </div>
-
-          <div class="envelope-stage">
-            <button class="envelope-button" id="openEnvelope" aria-label="Открыть письмо">
-              <div class="envelope" id="envelope">
-                <div class="envelope-top"></div>
-                <div class="envelope-body">
-                  <div class="stamp">❤</div>
-                  <span>Для тебя</span>
-                </div>
-              </div>
-            </button>
-          </div>
-
-          <article class="love-letter" id="loveLetter">
-            <div class="letter-header">
-              <span>Наши слова</span>
-              <span>Любимая</span>
-            </div>
-            <p>
-              Моя дорогая, сегодня я хочу сказать тебе то, что я чувствую каждый
-              день: ты — самый светлый, самый прекрасный и самый важный человек в
-              моей жизни. С тобой даже самые обычные дни становятся особенными.
-            </p>
-            <p>
-              Ты умеешь делать пространство вокруг себя тише, теплее и добрее.
-              Ты — мой покой, моя улыбка, мой любимый ритм сердца. Я благодарен
-              каждому мгновению, которое мы провели вместе, и каждому шагу, что
-              привёл нас к этому чудесному моменту.
-            </p>
-            <p>
-              Пусть наша любовь будет как самый красивый закат — спокойной,
-              яркой и такой, что хочется останавливать время. Я очень счастлив,
-              что ты есть рядом. И я хочу любить тебя ещё долго, ещё глубже, ещё
-              нежнее.
-            </p>
-            <p class="signature">С любовью, всегда — твой человек</p>
-          </article>
-        </section>
-
-        <section id="gallery" class="gallery-section">
-          <div class="section-heading">
-            <p class="eyebrow">Наши моменты</p>
-            <h2>Галерея любви</h2>
-          </div>
-
-          <div class="gallery-grid">
-            <figure class="gallery-item">
-              <img src="images/photo-1.svg" alt="Первый счастливый момент" />
-              <figcaption>Первый взгляд, который изменил всё</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-2.svg" alt="Первый совместный смех" />
-              <figcaption>Тот самый смех, от которого хочется улыбаться каждый день</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-3.svg" alt="Романтический вечер" />
-              <figcaption>Вечера, в которых есть только ты и любовь</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-4.svg" alt="Прогулка" />
-              <figcaption>Наши прогулки и разговоры без конца</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-5.svg" alt="Руки в руках" />
-              <figcaption>Самые тёплые моменты — когда мы рядом</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-6.svg" alt="Нежность" />
-              <figcaption>Нежность в каждом взгляде</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-7.svg" alt="День особой даты" />
-              <figcaption>Дни, которые стали самыми дорогими воспоминаниями</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-8.svg" alt="Поддержка" />
-              <figcaption>Твоя поддержка — самое ценное, что есть у меня</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-9.svg" alt="Наслаждение моментом" />
-              <figcaption>Счастье — в простых моментах рядом с тобой</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="images/photo-10.svg" alt="Будущее" />
-              <figcaption>Наши мечты и большой общий путь вперёд</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section id="story" class="story-section">
-          <div class="section-heading">
-            <p class="eyebrow">Наш путь</p>
-            <h2>История наших отношений</h2>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <span class="timeline-date">Первый день</span>
-              <h3>Всё началось с улыбки</h3>
-              <p>
-                Тогда, в тот самый день, когда мы впервые встретились, я не
-                подозревал, как сильно этот момент изменит мою жизнь. Когда ты
-                улыбнулась, в моей голове будто зажёгся свет.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <span class="timeline-date">Первые разговоры</span>
-              <h3>Лёгкость и тепло</h3>
-              <p>
-                Мы говорили обо всём: о жизни, мечтах, мелочах, которые всегда
-                казались важными. В твоих словах было тепло, и я чувствовал себя
-                так спокойно рядом с тобой.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <span class="timeline-date">Вместе</span>
-              <h3>Каждый день стал особенным</h3>
-              <p>
-                То, что начиналось как простые встречи, превращалось в привычку
-                мечтать вместе и не бояться ни одного нового дня. С тобой всё
-                казалось светлее и добрее.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <span class="timeline-date">Сегодня</span>
-              <h3>Любовь, которую хочется беречь</h3>
-              <p>
-                Я благодарен тебе за каждый день, за твою заботу, твою нежность
-                и за то, что ты есть в моей жизни. Эта любовь — не просто
-                чувство, это прекрасный путь, который хочется пройти до конца.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="final" class="final-section">
-          <div class="final-card">
-            <div class="final-heart">❤</div>
-            <p class="eyebrow">Спасибо тебе</p>
-            <h2>Я счастлив, что ты есть в моей жизни.</h2>
-            <p>
-              Каждый миг рядом с тобой — это счастье, каждая улыбка — это сила,
-              а любовь с тобой — самое прекрасное, что есть у меня.
-            </p>
-            <div class="final-actions">
-              <a href="#top" class="primary-btn">Вернуться наверх</a>
-            </div>
-          </div>
-        </section>
-      </main>
+  <section class="cover" id="cover" aria-labelledby="cover-title">
+    <div class="cover-content">
+      <p class="eyebrow">НАША МАЛЕНЬКАЯ ВСЕЛЕННАЯ</p>
+      <h1 id="cover-title">Для тебя <span aria-hidden="true">♡</span></h1>
+      <p class="cover-subtitle">У меня есть кое-что особенное...</p>
+      <button class="envelope-button" id="openEnvelope" type="button" aria-label="Открыть конверт для тебя">
+        <span class="envelope" aria-hidden="true">
+          <span class="envelope-letter"><span>с любовью</span><span class="letter-heart">♥</span></span>
+          <span class="envelope-back"></span><span class="envelope-flap"></span>
+          <span class="envelope-front"></span><span class="envelope-seal">♥</span>
+        </span>
+        <span class="envelope-hint">Нажми, чтобы открыть</span>
+      </button>
+      <p class="cover-note">Сделано с любовью — только для тебя</p>
     </div>
+  </section>
 
-    <button class="floating-back" id="floatingBack" aria-label="Вернуться наверх">
-      ↑
-    </button>
+  <div class="site" id="site" hidden>
+    <header class="topbar">
+      <a class="wordmark" href="#home" aria-label="OUR STORY — наверх">OUR <span>STORY</span></a>
+      <nav class="navigation" aria-label="Главная навигация">
+        <a href="#letter">Письмо</a><a href="#gallery">Моменты</a><a href="#story">История</a>
+      </nav>
+      <button class="music-button" id="musicToggle" type="button" aria-pressed="false" aria-label="Включить музыку"><span aria-hidden="true">♫</span><span class="music-label">Музыка</span></button>
+    </header>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <main id="home">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">ДЛЯ МОЕГО ЛЮБИМОГО ЧЕЛОВЕКА</p>
+          <h1 id="hero-title">История,<br>которая <em>наша.</em></h1>
+          <p class="hero-text">Несколько слов, фотографий и воспоминаний — чтобы напомнить, как много ты для меня значишь.</p>
+          <a class="text-link" href="#letter">Открыть наше письмо <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-heart">♥</div><span class="hero-sparkle sparkle-one">✦</span><span class="hero-sparkle sparkle-two">✧</span><span class="hero-caption">ты — моё любимое место</span></div>
+        <span class="hero-index" aria-hidden="true">01 — БЕСКОНЕЧНОСТЬ</span>
+      </section>
+
+      <section class="section letter-section reveal" id="letter" aria-labelledby="letter-title">
+        <div class="section-intro"><p class="eyebrow">САМЫЕ ВАЖНЫЕ СЛОВА</p><h2 id="letter-title">Моей <em>любимой</em></h2><p>Письмо, которое можно перечитывать.</p></div>
+        <article class="letter-card"><div class="letter-topline"><span>ЛИЧНОЕ ПИСЬМО</span><span aria-hidden="true">♡</span></div><div class="letter-copy" id="letterCopy" aria-live="polite"></div><p class="signature" id="letterSignature"></p><span class="letter-watermark" aria-hidden="true">люблю</span></article>
+      </section>
+
+      <section class="section gallery-section reveal" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-intro"><p class="eyebrow">КАДРЫ, КОТОРЫЕ ХРАНИМ</p><h2 id="gallery-title">Наши <em>моменты</em></h2><p>Каждый снимок — маленькая вселенная. Нажми на фото, чтобы рассмотреть его.</p></div>
+        <div class="gallery-grid" id="galleryGrid" aria-label="Фотогалерея"></div>
+        <p class="gallery-note">Добавь свои фотографии в папку <code>images/</code> — и они появятся здесь.</p>
+      </section>
+
+      <section class="section story-section reveal" id="story" aria-labelledby="story-title">
+        <div class="section-intro"><p class="eyebrow">ШАГ ЗА ШАГОМ</p><h2 id="story-title">Наша <em>история</em></h2><p>Самые дорогие главы мы напишем сами.</p></div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="final-section reveal" id="final" aria-labelledby="final-title">
+        <div class="final-stars" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>♡</span><span>✧</span></div>
+        <p class="eyebrow">ИЗ ВСЕХ ИСТОРИЙ — МОЯ ЛЮБИМАЯ</p>
+        <div class="final-heart" aria-hidden="true">♥</div>
+        <h2 id="final-title">Я счастлив,<br>что ты есть <em>в моей жизни.</em></h2>
+        <p class="final-subtitle">И это только начало нашей истории...</p>
+        <a class="final-link" href="#home">С любовью, всегда <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+    <footer class="footer"><span>OUR STORY</span><span>Создано с любовью ♡</span><a href="#home">Наверх ↑</a></footer>
+  </div>
+
+  <audio id="backgroundMusic" src="audio/our-song.mp3" preload="none" loop></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографии">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть фотографию">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Предыдущее фото">‹</button>
+    <figure><img id="lightboxImage" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Следующее фото">›</button>
+  </dialog>
+</body>
 </html>
