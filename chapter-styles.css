@@ -1,0 +1,49 @@
+/* Additional chapter compositions. The shared book theme and existing chapter styles remain unchanged. */
+.chapter-details .chapter-copy{width:min(780px,100%)}
+.chapter-details .chapter-copy h1{margin-bottom:clamp(20px,4vh,38px)}
+.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,2vw,18px)}
+.detail-card{position:relative;min-height:130px;padding:clamp(15px,2.4vw,25px);overflow:hidden;border:1px solid rgba(120,130,103,.2);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(226,227,216,.7));box-shadow:0 10px 24px rgba(54,58,46,.08);opacity:0;animation:chapter-card-in .55s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--card-index)*130ms)}
+.detail-card::after{position:absolute;right:-16px;bottom:-38px;width:100px;height:100px;border:1px solid rgba(143,155,122,.14);border-radius:50%;content:""}
+.detail-icon{color:#879274;font-size:1.28rem}
+.detail-card h2,.future-card h2{margin:8px 0 5px;color:#42463c;font-family:"Playfair Display",Georgia,serif;font-size:clamp(.97rem,1.8vw,1.2rem);font-weight:500}
+.detail-card p,.future-card p{margin:0;color:#6b6f64;font-size:clamp(.75rem,1.3vw,.89rem);line-height:1.55}
+.chapter-time .chapter-copy{display:grid;justify-items:center;text-align:center}
+.chapter-time .chapter-copy h1{max-width:720px;margin-bottom:clamp(22px,4vh,42px)}
+.time-piece{display:grid;justify-items:center;gap:clamp(16px,3vh,28px);width:min(680px,100%)}
+.clock-face{position:relative;width:clamp(105px,17vw,155px);aspect-ratio:1;border:1px solid rgba(120,130,103,.35);border-radius:50%;background:radial-gradient(circle,#f9f8f2 54%,#e6e5db 55%,#f2f0e8 70%);box-shadow:inset 0 0 0 7px rgba(255,255,255,.48),0 15px 34px rgba(54,58,46,.12);animation:clock-breathe 3s ease-in-out infinite}
+.clock-face::before,.clock-face::after{position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#899477;content:"";transform:translate(-50%,-50%)}
+.clock-tick{position:absolute;left:50%;top:10px;width:1px;height:8px;background:#a2a795;transform-origin:50% calc(clamp(105px,17vw,155px)/2 - 10px)}
+.tick-2{transform:rotate(90deg)}.tick-3{transform:rotate(180deg)}.tick-4{transform:rotate(270deg)}
+.clock-hand{position:absolute;left:50%;bottom:50%;width:2px;border-radius:4px;background:#717c60;transform-origin:50% 100%}
+.clock-hour{height:27%;transform:translateX(-50%) rotate(42deg);animation:hour-turn 18s linear infinite}
+.clock-minute{height:37%;width:1px;background:#9ba68a;transform:translateX(-50%) rotate(0);animation:minute-turn 9s linear infinite}
+.time-piece blockquote{margin:0;color:#41443c;font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;line-height:1.65}
+.quote-caption{max-width:440px;margin:0;color:#8a907c;font-size:.57rem;font-weight:600;letter-spacing:.16em;line-height:1.7}
+.chapter-confession .chapter-copy{width:min(720px,100%);padding:clamp(20px,4vw,38px);border-left:2px solid #aeb99b;background:linear-gradient(90deg,rgba(190,201,169,.13),transparent 82%);animation:confession-in .8s ease both}
+.chapter-confession .chapter-copy h1{font-size:clamp(2rem,5vw,3.8rem)}
+.chapter-confession .chapter-copy>p:not(.chapter-kicker){max-width:630px}
+.chapter-confession .chapter-copy>p:not(.chapter-kicker):nth-of-type(2){animation:paragraph-in .7s .15s both}
+.chapter-confession .chapter-copy>p:not(.chapter-kicker):nth-of-type(3){animation:paragraph-in .7s .3s both}
+.chapter-confession .chapter-copy>p:not(.chapter-kicker):nth-of-type(4){animation:paragraph-in .7s .45s both}
+.chapter-future .chapter-copy{width:min(800px,100%)}
+.chapter-future .chapter-copy h1{margin-bottom:clamp(20px,4vh,36px)}
+.future-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.8vw,16px)}
+.future-card{position:relative;display:flex;min-height:clamp(175px,25vh,240px);flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(16px,2.3vw,25px);overflow:hidden;border:1px solid rgba(255,255,255,.5);border-radius:13px;background:linear-gradient(155deg,#f8f7f0,#e4e6dc);box-shadow:0 12px 26px rgba(54,58,46,.1);opacity:0;animation:chapter-card-in .65s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--card-index)*190ms)}
+.future-card:nth-child(2){transform:translateY(12px);animation-name:future-card-middle}
+.future-card>span{position:absolute;top:15px;left:17px;color:#9da58e;font-family:"Playfair Display",Georgia,serif;font-size:1.4rem}
+.future-card i{position:absolute;top:18px;right:18px;color:#acb59b;font-size:1.3rem;font-style:normal;animation:twinkle 2.4s ease-in-out infinite alternate}
+.future-card h2{margin-top:0}
+.chapter-ending .chapter-copy{display:flex;max-width:760px;flex-direction:column;align-items:center;text-align:center}
+.chapter-ending .chapter-copy h1{font-size:clamp(2.4rem,6vw,4.7rem)}
+.chapter-ending .chapter-copy>p:not(.chapter-kicker){max-width:680px}
+.chapter-ending .closing-line{margin:clamp(15px,3vh,28px) 0 0!important;color:#788267!important;font-size:clamp(1.15rem,2.8vw,1.7rem)!important;font-style:italic}
+@keyframes chapter-card-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes future-card-middle{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(12px)}}
+@keyframes confession-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes paragraph-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes clock-breathe{50%{box-shadow:inset 0 0 0 7px rgba(255,255,255,.48),0 18px 38px rgba(54,58,46,.18);transform:scale(1.025)}}
+@keyframes minute-turn{to{transform:translateX(-50%) rotate(360deg)}}
+@keyframes hour-turn{to{transform:translateX(-50%) rotate(402deg)}}
+@media(max-width:700px){.detail-grid{gap:9px}.detail-card{min-height:115px;padding:13px}.future-grid{gap:8px}.future-card{min-height:clamp(155px,23vh,205px);padding:13px}.future-card>span{top:12px;left:13px}.future-card i{top:12px;right:12px}.quote-caption{font-size:.5rem}.chapter-confession .chapter-copy{padding:18px}.clock-tick{transform-origin:50% calc(clamp(105px,17vw,155px)/2 - 10px)}}
+@media(max-width:390px){.detail-card{min-height:108px;padding:10px}.detail-card h2,.future-card h2{font-size:.9rem}.detail-card p,.future-card p{font-size:.69rem}.future-card{min-height:145px;padding:10px}.future-grid{gap:6px}}
+@media(prefers-reduced-motion:reduce){.detail-card,.future-card,.chapter-confession .chapter-copy,.chapter-confession .chapter-copy>p,.clock-face,.clock-hand{animation:none!important;opacity:1!important;transform:none!important}}

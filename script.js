@@ -50,26 +50,57 @@ const CHAPTERS = [
   },
   {
     label: "ГЛАВА ШЕСТАЯ",
-    title: "Тогда <em>и сейчас</em>",
-    paragraphs: [
-      "Ты была для меня особенной с самого начала.",
-      "Тогда я замечал в тебе что-то невероятное — и с тех пор это чувство никуда не исчезло.",
-      "Если честно, в те времена ты казалась мне особенно прекрасной. Но и сейчас для меня в тебе есть что-то совершенно неповторимое."
+    title: "Маленькие <em>детали</em>",
+    variant: "details",
+    detailCards: [
+      { icon: "✳", title: "Твоя улыбка", text: "Она умеет сделать даже самый обычный день особенным." },
+      { icon: "♡", title: "Твоя забота", text: "В простых мелочах рядом с тобой всегда столько тепла." },
+      { icon: "✦", title: "Наши разговоры", text: "Я дорожу каждым моментом, когда мы просто говорим обо всём." },
+      { icon: "∞", title: "То, какая ты есть", text: "Именно из таких маленьких деталей складывается моё большое чувство." }
     ],
-    photo: { title: "Место для вашего снимка", path: "images/then-and-now.jpg" },
     ornament: "06"
   },
   {
     label: "ГЛАВА СЕДЬМАЯ",
-    title: "Продолжение нашей <em>истории</em>",
-    paragraphs: [
-      "Спасибо, что однажды появилась в моей жизни.",
-      "Спасибо за разговоры, поддержку, воспоминания и за то, что ты просто есть.",
-      "Я надеюсь, впереди у нас ещё много моментов, над которыми мы будем смеяться, которые будем вспоминать и бережно хранить.",
-      "Пусть эта история продолжается. Ведь самые важные главы, возможно, ещё впереди."
-    ],
-    photo: { title: "Место для ещё одного воспоминания", path: "images/our-story.jpg" },
+    title: "Если бы можно было <em>остановить время</em>",
+    variant: "time",
+    quote: "Если бы можно было остановить время, я бы оставил его в одном из тех тихих мгновений, когда мы просто рядом.",
+    quoteCaption: "ПОТОМУ ЧТО ВРЕМЯ РЯДОМ С ТОБОЙ ВСЕГДА ПРОЛЕТАЕТ СЛИШКОМ БЫСТРО",
     ornament: "07"
+  },
+  {
+    label: "ГЛАВА ВОСЬМАЯ",
+    title: "То, что я не всегда <em>говорю</em>",
+    variant: "confession",
+    paragraphs: [
+      "Иногда мне трудно подобрать правильные слова. Но даже когда я молчу, я очень многое чувствую.",
+      "Ты важна для меня больше, чем я умею показать. Я замечаю твою заботу, храню наши разговоры и благодарен за каждый день, в котором ты есть.",
+      "Мне хочется, чтобы ты всегда помнила: рядом со мной тебе не нужно быть кем-то другим. Я ценю тебя настоящую."
+    ],
+    ornament: "08"
+  },
+  {
+    label: "ГЛАВА ДЕВЯТАЯ",
+    title: "Впереди ещё <em>столько всего</em>",
+    variant: "future",
+    futureCards: [
+      { number: "01", title: "Новые места", text: "Открывать незнакомые улицы и находить любимые уголки." },
+      { number: "02", title: "Поводы смеяться", text: "Собирать истории, которые потом будем вспоминать снова и снова." },
+      { number: "03", title: "Тихие вечера", text: "Ценить уютные минуты, когда для счастья достаточно быть рядом." }
+    ],
+    ornament: "09"
+  },
+  {
+    label: "ГЛАВА ДЕСЯТАЯ",
+    title: "И это ещё <em>не конец</em>",
+    variant: "ending",
+    paragraphs: [
+      "Эта книга хранит лишь несколько глав — но за каждой стоит целый мир, который дорог мне.",
+      "Спасибо за то, что наша история началась. Я хочу и дальше быть рядом: смеяться, поддерживать, мечтать и создавать воспоминания вместе.",
+      "И если однажды мы снова откроем эти страницы, пусть впереди нас ждёт ещё больше причин улыбнуться."
+    ],
+    closingLine: "Продолжение обязательно будет.",
+    ornament: "10"
   }
 ];
 
@@ -83,6 +114,7 @@ let touchStartY = 0;
 
 function showToast(message) {
   const toast = $("#toast");
+  if (!toast) return;
   toast.textContent = message;
   toast.classList.add("visible");
   clearTimeout(toastTimer);
@@ -94,10 +126,18 @@ function chapterMarkup(chapter) {
   const compliments = chapter.compliments
     ? `<ul class="compliments">${chapter.compliments.map((text, index) => `<li style="--item:${index}">${escapeHTML(text)}</li>`).join("")}</ul>`
     : "";
-  const photo = chapter.photo
-    ? `<figure class="photo-frame"><div class="photo-placeholder" role="img" aria-label="Пустая рамка для фотографии"><span class="photo-mark" aria-hidden="true">✳</span><span>${escapeHTML(chapter.photo.title)}</span><small>${escapeHTML(chapter.photo.path)}</small></div><figcaption>ОДИН КАДР — ЦЕЛАЯ ГЛАВА</figcaption></figure>`
+  const details = chapter.detailCards
+    ? `<div class="detail-grid">${chapter.detailCards.map((card, index) => `<article class="detail-card" style="--card-index:${index}"><span class="detail-icon" aria-hidden="true">${escapeHTML(card.icon)}</span><h2>${escapeHTML(card.title)}</h2><p>${escapeHTML(card.text)}</p></article>`).join("")}</div>`
     : "";
-  return `<article class="chapter-content"><div class="chapter-topline"><span>${chapter.label}</span><span>OUR STORY</span></div><div class="chapter-copy"><p class="chapter-kicker">ИЗ НАШИХ ВОСПОМИНАНИЙ</p><h1>${chapter.title}</h1>${paragraphs}${compliments}${photo}</div><span class="chapter-ornament" aria-hidden="true">${chapter.ornament}</span><span class="page-corner" aria-hidden="true">♡</span></article>`;
+  const time = chapter.quote
+    ? `<div class="time-piece"><div class="clock-face" aria-hidden="true"><span class="clock-tick tick-1"></span><span class="clock-tick tick-2"></span><span class="clock-tick tick-3"></span><span class="clock-tick tick-4"></span><span class="clock-hand clock-hour"></span><span class="clock-hand clock-minute"></span><span class="clock-center"></span></div><blockquote>${escapeHTML(chapter.quote)}</blockquote><p class="quote-caption">${escapeHTML(chapter.quoteCaption)}</p></div>`
+    : "";
+  const future = chapter.futureCards
+    ? `<div class="future-grid">${chapter.futureCards.map((card, index) => `<article class="future-card" style="--card-index:${index}"><span>${escapeHTML(card.number)}</span><h2>${escapeHTML(card.title)}</h2><p>${escapeHTML(card.text)}</p><i aria-hidden="true">✧</i></article>`).join("")}</div>`
+    : "";
+  const closing = chapter.closingLine ? `<p class="closing-line">${escapeHTML(chapter.closingLine)}</p>` : "";
+  const variant = chapter.variant ? ` chapter-${chapter.variant}` : "";
+  return `<article class="chapter-content${variant}"><div class="chapter-topline"><span>${chapter.label}</span><span>OUR STORY</span></div><div class="chapter-copy"><p class="chapter-kicker">ИЗ НАШИХ ВОСПОМИНАНИЙ</p><h1>${chapter.title}</h1>${paragraphs}${compliments}${details}${time}${future}${closing}</div><span class="chapter-ornament" aria-hidden="true">${chapter.ornament}</span><span class="page-corner" aria-hidden="true">♡</span></article>`;
 }
 
 function escapeHTML(value) {
@@ -105,6 +145,7 @@ function escapeHTML(value) {
 }
 
 function renderPage(index, direction = 0) {
+  if (!CHAPTERS[index]) return;
   currentPage = index;
   const paper = $("#pagePaper");
   paper.innerHTML = chapterMarkup(CHAPTERS[index]);
@@ -113,15 +154,15 @@ function renderPage(index, direction = 0) {
   paper.classList.add(direction > 0 ? "turn-forward" : direction < 0 ? "turn-back" : "page-enter");
   $("#pageNumber").textContent = `${String(index + 1).padStart(2, "0")} / ${String(CHAPTERS.length).padStart(2, "0")}`;
   $("#progressFill").style.width = `${((index + 1) / CHAPTERS.length) * 100}%`;
-  $(".progress-track").setAttribute("aria-valuenow", String(index + 1));
+  const progress = $(".progress-track");
+  progress.setAttribute("aria-valuemax", String(CHAPTERS.length));
+  progress.setAttribute("aria-valuenow", String(index + 1));
   $("#previousPage").disabled = index === 0;
   $("#nextPage").innerHTML = index === CHAPTERS.length - 1 ? '<span>Завершить</span> <span aria-hidden="true">♡</span>' : '<span>Далее</span> <span aria-hidden="true">→</span>';
   $("#nextPage").setAttribute("aria-label", index === CHAPTERS.length - 1 ? "Завершить историю" : "Следующая страница");
-  if (index === 4) {
-    $$(".compliments li", paper).forEach((item, itemIndex) => {
-      item.style.animationDelay = `${itemIndex * 420 + 180}ms`;
-    });
-  }
+  $$(".compliments li", paper).forEach((item, itemIndex) => {
+    item.style.animationDelay = `${itemIndex * 420 + 180}ms`;
+  });
 }
 
 function turnPage(direction) {
@@ -185,6 +226,7 @@ function createHeartWords() {
 
 function initStars() {
   const field = $("#stars");
+  if (!field) return;
   const count = window.matchMedia("(max-width: 600px)").matches ? 28 : 52;
   for (let index = 0; index < count; index += 1) {
     const star = document.createElement("i");
@@ -200,6 +242,7 @@ function initStars() {
 function initMusic() {
   const tracks = [$("#trackOne"), $("#trackTwo")];
   const button = $("#musicToggle");
+  if (!button || tracks.some((track) => !track)) return () => {};
   let trackIndex = 0;
   let enabled = false;
   const syncButton = () => {
@@ -256,7 +299,7 @@ function init() {
   const startMusic = initMusic();
   const cover = $("#cover");
   const openButton = $("#openEnvelope");
-  openButton.addEventListener("click", () => {
+  openButton?.addEventListener("click", () => {
     if (openButton.classList.contains("opened")) return;
     openButton.classList.add("opened");
     openButton.setAttribute("aria-expanded", "true");
@@ -267,21 +310,21 @@ function init() {
       window.setTimeout(() => { cover.hidden = true; }, 850);
     }, 750);
   });
-  $("#previousPage").addEventListener("click", () => turnPage(-1));
-  $("#nextPage").addEventListener("click", () => turnPage(1));
-  $("#rereadButton").addEventListener("click", reread);
+  $("#previousPage")?.addEventListener("click", () => turnPage(-1));
+  $("#nextPage")?.addEventListener("click", () => turnPage(1));
+  $("#rereadButton")?.addEventListener("click", reread);
   const book = $("#book");
-  book.addEventListener("touchstart", (event) => {
+  book?.addEventListener("touchstart", (event) => {
     touchStartX = event.changedTouches[0].clientX;
     touchStartY = event.changedTouches[0].clientY;
   }, { passive: true });
-  book.addEventListener("touchend", (event) => {
+  book?.addEventListener("touchend", (event) => {
     const dx = event.changedTouches[0].clientX - touchStartX;
     const dy = event.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.25) turnPage(dx < 0 ? 1 : -1);
   }, { passive: true });
   document.addEventListener("keydown", (event) => {
-    if ($("#bookStage").hidden || event.target.matches("button, a")) return;
+    if (!$("#bookStage") || $("#bookStage").hidden || event.target.matches("button, a")) return;
     if (event.key === "ArrowRight") turnPage(1);
     if (event.key === "ArrowLeft") turnPage(-1);
   });
