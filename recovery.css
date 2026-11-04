@@ -1,29 +1,47 @@
-/* Restore the original fixed-page book layout. The extra flow-layout overrides
-   in style.css were clipping/altering the intended page and control layout. */
+/* Restore the original fixed-page book layout after the added flow-layout rules
+   in style.css. Keep the existing visual theme and page-turn behavior intact. */
 html,
 body {
   width: auto !important;
   height: auto !important;
   overflow-x: hidden !important;
-  overflow-y: visible !important;
-  -webkit-overflow-scrolling: auto !important;
+  overflow-y: initial !important;
+  -webkit-overflow-scrolling: initial !important;
 }
 
 .book-stage {
+  position: relative !important;
+  inset: auto !important;
+  display: flex !important;
   width: auto !important;
+  height: auto !important;
+  min-height: 100svh !important;
   max-height: initial !important;
   overflow: initial !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 22px clamp(14px, 4vw, 56px) 25px !important;
 }
 
 .book {
+  position: relative !important;
+  inset: auto !important;
+  display: flex !important;
+  width: min(1060px, 100%) !important;
+  height: auto !important;
   min-height: initial !important;
   max-height: initial !important;
   overflow: initial !important;
+  flex: 1 !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 4px 0 0 !important;
 }
 
 .page-paper {
   position: relative !important;
   inset: auto !important;
+  display: block !important;
   width: 100% !important;
   height: min(72svh, 700px) !important;
   min-height: 430px !important;
@@ -32,19 +50,25 @@ body {
   overflow-y: hidden !important;
   touch-action: auto !important;
   overscroll-behavior-y: auto !important;
+  -webkit-overflow-scrolling: auto !important;
   scrollbar-gutter: auto !important;
 }
 
 .page-paper > .chapter-content {
   position: relative !important;
   inset: auto !important;
+  display: flex !important;
+  width: 100% !important;
   height: 100% !important;
   min-height: initial !important;
   max-height: initial !important;
   overflow: initial !important;
+  flex-direction: column !important;
 }
 
 .page-paper .chapter-copy {
+  position: relative !important;
+  inset: auto !important;
   height: auto !important;
   min-height: initial !important;
   max-height: initial !important;
@@ -56,6 +80,8 @@ body {
   position: static !important;
   inset: auto !important;
   flex: initial !important;
+  margin-top: 0 !important;
+  padding: 20px 3px 0 !important;
 }
 
 @media (min-height: 850px) {
@@ -63,19 +89,33 @@ body {
 }
 
 @media (max-width: 700px) {
+  .book-stage {
+    min-height: 100svh !important;
+    padding: 14px 13px 19px !important;
+  }
+  .book-header { padding-bottom: 14px !important; }
+  .book { width: 100% !important; }
   .page-paper {
     height: min(72svh, 700px) !important;
     min-height: 440px !important;
     overflow: hidden !important;
     overflow-y: hidden !important;
   }
+  .book-controls {
+    grid-template-columns: 1fr minmax(88px, 130px) 1fr !important;
+    gap: 7px !important;
+    padding: 15px 3px 0 !important;
+  }
 }
 
 @media (max-height: 700px) and (min-width: 701px) {
+  .book-stage { padding-top: 10px !important; }
+  .book-header { padding-bottom: 8px !important; }
   .page-paper {
     height: 68svh !important;
     min-height: 360px !important;
   }
+  .book-controls { padding-top: 11px !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
