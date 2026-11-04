@@ -7,12 +7,13 @@
   <meta name="description" content="С годовщиной, любимая! — наша история, бережно собранная в книгу.">
   <title>С годовщиной, любимая!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Zen+Old+Mincho:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-styles.css">
   <link rel="stylesheet" href="anniversary.css">
   <link rel="stylesheet" href="anniversary-enhancements.css">
+  <link rel="stylesheet" href="anime-ui.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="chapter-atmospheres.js" defer></script>
   <script src="script.js" defer></script>
@@ -41,7 +42,6 @@
     <header class="book-header">
       <a class="wordmark" href="#book" aria-label="С годовщиной, любимая">OUR <span>STORY</span></a>
       <span class="edition">НАША ИСТОРИЯ · ЛИЧНОЕ ИЗДАНИЕ</span>
-      <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить музыку" aria-pressed="false">♫</button>
     </header>
     <section class="book" id="book" aria-label="Интерактивная книга нашей истории">
       <div class="book-spine" aria-hidden="true"></div>
@@ -49,7 +49,7 @@
       <div class="book-controls">
         <button class="page-button previous-button" id="previousPage" type="button" aria-label="Предыдущая страница">← <span>Назад</span></button>
         <div class="page-progress"><span class="page-number" id="pageNumber">01 / 15</span><div class="progress-track" role="progressbar" aria-label="Прогресс чтения" aria-valuemin="1" aria-valuemax="15" aria-valuenow="1"><span class="progress-fill" id="progressFill"></span></div></div>
-        <button class="page-button next-button" id="nextPage" type="button" aria-label="Следующая страница"><span>Далее</span> <span aria-hidden="true">→</span></button>
+        <button class="page-button next-button" id="nextPage" type="button" aria-label="Следующая стран��ца"><span>Далее</span> <span aria-hidden="true">→</span></button>
       </div>
       <p class="swipe-hint" aria-hidden="true">На телефоне можно листать свайпом</p>
     </section>
@@ -71,8 +71,6 @@
     <button class="reread-button" id="rereadButton" type="button">Перечитать историю</button>
     <div class="heart-words" id="heartWords" aria-hidden="true"></div>
   </section>
-  <audio id="trackOne" src="audio/oslepitelnaya.mp3" preload="none"></audio>
-  <audio id="trackTwo" src="audio/rayskie-cvety.mp3" preload="none"></audio>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

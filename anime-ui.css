@@ -1,0 +1,105 @@
+/* A more anime-inspired storybook interface: soft sakura light, manga-like
+   framing, readable chapter cards, and no platform-dependent emoji. */
+:root {
+  --anime-rose: #eeafc7;
+  --anime-lilac: #c9b8e8;
+  --anime-ink: #30243c;
+  --anime-paper: #fffaf7;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(244, 177, 207, .13), transparent 30%),
+    radial-gradient(ellipse at 88% 76%, rgba(190, 171, 230, .13), transparent 34%),
+    radial-gradient(ellipse at 50% 2%, #282a24 0, transparent 47%),
+    var(--night);
+}
+
+.cover {
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(226, 151, 191, .18), transparent 38%),
+    radial-gradient(ellipse at 85% 85%, rgba(153, 130, 202, .18), transparent 34%),
+    linear-gradient(150deg, #171321, #11111b 58%, #201523);
+}
+.cover::before,
+.cover::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  border: 1px solid rgba(245, 204, 222, .14);
+  border-radius: 50%;
+}
+.cover::before {
+  width: min(76vw, 680px);
+  aspect-ratio: 1;
+  animation: anime-orbit 16s ease-in-out infinite alternate;
+}
+.cover::after {
+  width: min(58vw, 520px);
+  aspect-ratio: 1;
+  border-color: rgba(207, 187, 235, .13);
+  animation: anime-orbit 21s ease-in-out infinite alternate-reverse;
+}
+.cover-content { width: min(100%, 760px); }
+.cover-kicker, .cover-note { color: #e8c99a; }
+.anniversary-title {
+  color: #fff7fb;
+  text-shadow: 0 8px 32px rgba(238, 175, 199, .2);
+}
+.anniversary-title span { color: var(--anime-rose); }
+.cover-subtitle { color: #e0d2e2; }
+
+/* Soft blush and lavender book shadows, plus a subtle page-frame highlight. */
+.book { filter: drop-shadow(0 26px 62px rgba(10, 7, 18, .35)); }
+.page-paper {
+  border-color: rgba(255, 242, 249, .72);
+  box-shadow: 0 24px 70px rgba(5, 7, 16, .28), inset 0 0 0 5px rgba(255,255,255,.35), inset 0 0 46px rgba(201, 160, 185, .08);
+}
+.chapter-topline { color: #8c778a; }
+.chapter-copy h1, .chapter-copy h2 { text-shadow: 0 2px 0 rgba(255,255,255,.45); }
+.chapter-kicker { color: #a76f8c !important; }
+.page-button, .reread-button {
+  border-color: rgba(238, 175, 199, .34);
+  box-shadow: 0 8px 24px rgba(5, 7, 16, .12);
+}
+.page-button:hover:not(:disabled), .reread-button:hover {
+  border-color: rgba(245, 204, 222, .7);
+  box-shadow: 0 10px 28px rgba(161, 98, 139, .2);
+}
+.progress-track { height: 4px; }
+.progress-fill { background: linear-gradient(90deg, var(--anime-lilac), var(--anime-rose), #f2d59f); }
+
+/* Gentle drifting sakura shapes on the opening cover; text and controls stay above them. */
+.cover-content::before,
+.cover-content::after {
+  position: absolute;
+  z-index: -1;
+  color: rgba(255, 220, 236, .62);
+  font-family: Georgia, serif;
+  pointer-events: none;
+  animation: sakura-float 8s ease-in-out infinite;
+}
+.cover-content::before { content: "✿"; left: 4%; top: 20%; font-size: clamp(1.2rem, 3vw, 2rem); }
+.cover-content::after { content: "✧"; right: 5%; bottom: 18%; color: rgba(222, 207, 248, .7); font-size: clamp(1.2rem, 3vw, 1.8rem); animation-delay: -3s; }
+
+.envelope { filter: drop-shadow(0 25px 32px rgba(5, 3, 10, .45)); }
+.envelope-front { background: linear-gradient(135deg, #f1cedb, #cda8bd); }
+.envelope-flap { background: linear-gradient(155deg, #ffe5ee, #d9b8d0); }
+.envelope-seal { background: linear-gradient(145deg, #eab5c9, #b881a4); color: #fff8fb; }
+.envelope-letter { box-shadow: inset 0 0 0 1px rgba(153, 97, 128, .18), 0 4px 16px rgba(91, 56, 83, .12); }
+
+@keyframes anime-orbit {
+  from { transform: scale(.96) rotate(-8deg); opacity: .48; }
+  to { transform: scale(1.04) rotate(8deg); opacity: .9; }
+}
+@keyframes sakura-float {
+  0%, 100% { transform: translate3d(0, 4px, 0) rotate(-8deg); opacity: .45; }
+  50% { transform: translate3d(8px, -10px, 0) rotate(12deg); opacity: .9; }
+}
+@media (max-width: 700px) {
+  .cover::before { width: 92vw; }
+  .cover::after { width: 74vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover::before, .cover::after, .cover-content::before, .cover-content::after { animation: none !important; }
+}
