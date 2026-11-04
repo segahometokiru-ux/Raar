@@ -1,22 +1,23 @@
-/* Per-chapter atmospheres: preserve the 15 established palettes and add a restrained layer of thematic particles. */
-(function () {
+/* Decorative symbols use text glyphs rather than platform-dependent emoji, so
+   the chapter illustrations render consistently when emoji fonts are missing. */
+(() => {
   "use strict";
   const themes = [
-    { name: "sakura", symbols: ["✿", "❀", "✧", "🌸", "·", "❀", "✿", "✧"], particle: "❀" },
+    { name: "sakura", symbols: ["✿", "❀", "✧", "❀", "·", "❀", "✿", "✧"], particle: "❀" },
     { name: "spring", symbols: ["❋", "❀", "❧", "✦", "☼", "❧", "✿", "·"], particle: "✿" },
-    { name: "japan", symbols: ["♧", "❀", "🏮", "扇", "✧", "❀", "🏮", "·"], particle: "✧" },
-    { name: "china", symbols: ["🏮", "✦", "❀", "金", "✧", "🏮", "❋", "·"], particle: "✦" },
+    { name: "japan", symbols: ["♧", "❀", "✦", "扇", "✧", "❀", "✦", "·"], particle: "✧" },
+    { name: "china", symbols: ["✦", "✧", "❀", "金", "✧", "✦", "❋", "·"], particle: "✦" },
     { name: "winter", symbols: ["❄", "✧", "❅", "·", "❄", "✦", "❅", "❄"], particle: "❄" },
     { name: "stars", symbols: ["✦", "✧", "☾", "·", "✶", "✧", "✦", "⋆"], particle: "✦" },
-    { name: "summer", symbols: ["🦋", "✿", "☼", "❋", "🦋", "❀", "✦", "·"], particle: "🦋" },
-    { name: "rose", symbols: ["❀", "♡", "🌹", "✧", "❁", "🌹", "♡", "·"], particle: "❀" },
-    { name: "sea", symbols: ["〜", "🐚", "·", "❧", "〜", "✦", "🐚", "〜"], particle: "·" },
-    { name: "autumn", symbols: ["🍂", "🍁", "✧", "🍂", "❧", "🍁", "·", "🍂"], particle: "🍂" },
+    { name: "summer", symbols: ["✿", "❋", "☼", "❋", "✿", "❀", "✦", "·"], particle: "✿" },
+    { name: "rose", symbols: ["❀", "♡", "✿", "✧", "❁", "✿", "♡", "·"], particle: "❀" },
+    { name: "sea", symbols: ["〜", "◇", "·", "❧", "〜", "✦", "◇", "〜"], particle: "·" },
+    { name: "autumn", symbols: ["✦", "❧", "✧", "❧", "❧", "✦", "·", "❧"], particle: "❧" },
     { name: "glow", symbols: ["✦", "·", "✧", "☼", "✦", "·", "✧", "⋆"], particle: "✦" },
     { name: "clouds", symbols: ["☁", "✧", "☁", "⋆", "☁", "✦", "☁", "·"], particle: "☁" },
     { name: "city", symbols: ["▦", "✦", "☾", "▪", "▦", "✧", "▫", "·"], particle: "✦" },
     { name: "dreams", symbols: ["☆", "✧", "✦", "⋆", "☆", "·", "✧", "✶"], particle: "☆" },
-    { name: "final", symbols: ["🌸", "✧", "♡", "✦", "❀", "⋆", "🌸", "✧"], particle: "🌸" }
+    { name: "final", symbols: ["✿", "✧", "♡", "✦", "❀", "⋆", "✿", "✧"], particle: "❀" }
   ];
   const ordinals = ["ПЕРВАЯ", "ВТОРАЯ", "ТРЕТЬЯ", "ЧЕТВЁРТАЯ", "ПЯТАЯ", "ШЕСТАЯ", "СЕДЬМАЯ", "ВОСЬМАЯ", "ДЕВЯТАЯ", "ДЕСЯТАЯ", "ОДИННАДЦАТАЯ", "ДВЕНАДЦАТАЯ", "ТРИНАДЦАТАЯ", "ЧЕТЫРНАДЦАТАЯ", "ПЯТНАДЦАТАЯ"];
 
@@ -26,10 +27,11 @@
     const label = page.querySelector(".chapter-topline span")?.textContent || "";
     const match = label.match(/ГЛАВА\s+([^\s]+)/i);
     const index = match ? ordinals.indexOf(match[1].toUpperCase()) : -1;
-    if (index < 0) return;
+    if (index < 0 || !themes[index]) return;
     const theme = themes[index];
     page.classList.add(`theme-${theme.name}`);
     if (page.querySelector(".atmosphere-decor")) return;
+
     const layer = document.createElement("div");
     layer.className = "atmosphere-decor";
     layer.setAttribute("aria-hidden", "true");
@@ -40,7 +42,7 @@
       item.style.setProperty("--piece-delay", `${-0.7 * i}s`);
       layer.append(item);
     });
-    if (index === 0 || index === 4 || index === 6 || index === 9 || index === 10 || index === 11 || index === 13) {
+    if ([0, 4, 6, 9, 10, 11, 13].includes(index)) {
       const particleCount = window.matchMedia("(max-width: 600px)").matches ? 7 : 11;
       for (let i = 0; i < particleCount; i += 1) {
         const particle = document.createElement("span");
