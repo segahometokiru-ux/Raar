@@ -1,123 +1,46 @@
-/* Restore the original fixed-page book layout after the added flow-layout rules
-   in style.css. Keep the existing visual theme and page-turn behavior intact. */
-html,
-body {
-  width: auto !important;
-  height: auto !important;
-  overflow-x: hidden !important;
-  overflow-y: initial !important;
-  -webkit-overflow-scrolling: initial !important;
-}
+/* Restore the intended responsive, illustrated-page layout while keeping the original theme. */
+*, *::before, *::after { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; scroll-behavior: smooth; }
+body { min-width: 320px; min-height: 100vh; min-height: 100svh; overflow-x: hidden; }
+[hidden] { display: none !important; }
 
-.book-stage {
-  position: relative !important;
-  inset: auto !important;
-  display: flex !important;
-  width: auto !important;
-  height: auto !important;
-  min-height: 100svh !important;
-  max-height: initial !important;
-  overflow: initial !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  padding: 22px clamp(14px, 4vw, 56px) 25px !important;
-}
+/* The cover stays full-screen and the opened book uses the original balanced layout. */
+.cover { position: fixed; }
+.book-stage { position: relative; z-index: 1; display: flex; min-height: 100svh; flex-direction: column; align-items: center; }
+.book-header { flex: 0 0 auto; }
+.book { position: relative; display: flex; width: min(1060px,100%); flex: 1; flex-direction: column; justify-content: center; padding: 4px 0 0; }
+.page-paper { position: relative; width: 100%; height: min(72svh,700px); min-height: 430px; overflow: hidden; }
+.chapter-content { position: relative; display: flex; width: 100%; height: 100%; flex-direction: column; }
+.book-controls { position: relative; z-index: 3; display: grid; flex: 0 0 auto; }
+.swipe-hint { position: relative; flex: 0 0 auto; }
+.book-stage[hidden], .final-screen[hidden] { display: none !important; }
 
-.book {
-  position: relative !important;
-  inset: auto !important;
-  display: flex !important;
-  width: min(1060px, 100%) !important;
-  height: auto !important;
-  min-height: initial !important;
-  max-height: initial !important;
-  overflow: initial !important;
-  flex: 1 !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  padding: 4px 0 0 !important;
-}
-
-.page-paper {
-  position: relative !important;
-  inset: auto !important;
-  display: block !important;
-  width: 100% !important;
-  height: min(72svh, 700px) !important;
-  min-height: 430px !important;
-  max-height: initial !important;
-  overflow: hidden !important;
-  overflow-y: hidden !important;
-  touch-action: auto !important;
-  overscroll-behavior-y: auto !important;
-  -webkit-overflow-scrolling: auto !important;
-  scrollbar-gutter: auto !important;
-}
-
-.page-paper > .chapter-content {
-  position: relative !important;
-  inset: auto !important;
-  display: flex !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: initial !important;
-  max-height: initial !important;
-  overflow: initial !important;
-  flex-direction: column !important;
-}
-
-.page-paper .chapter-copy {
-  position: relative !important;
-  inset: auto !important;
-  height: auto !important;
-  min-height: initial !important;
-  max-height: initial !important;
-  overflow: initial !important;
-  padding-bottom: 0 !important;
-}
-
-.book-controls {
-  position: static !important;
-  inset: auto !important;
-  flex: initial !important;
-  margin-top: 0 !important;
-  padding: 20px 3px 0 !important;
-}
-
-@media (min-height: 850px) {
-  .page-paper { height: min(75svh, 760px) !important; }
-}
-
+@media (min-height: 850px) { .page-paper { height: min(75svh,760px); } }
 @media (max-width: 700px) {
-  .book-stage {
-    min-height: 100svh !important;
-    padding: 14px 13px 19px !important;
-  }
-  .book-header { padding-bottom: 14px !important; }
-  .book { width: 100% !important; }
-  .page-paper {
-    height: min(72svh, 700px) !important;
-    min-height: 440px !important;
-    overflow: hidden !important;
-    overflow-y: hidden !important;
-  }
-  .book-controls {
-    grid-template-columns: 1fr minmax(88px, 130px) 1fr !important;
-    gap: 7px !important;
-    padding: 15px 3px 0 !important;
-  }
+  .book-stage { min-height: 100svh; padding: 14px 13px 19px; }
+  .book-header { width: 100%; padding-bottom: 14px; }
+  .book { width: 100%; }
+  .page-paper { height: min(72svh,700px); min-height: 440px; border-radius: 12px 15px 15px 12px; }
+  .chapter-content { padding: clamp(19px,4.2vw,30px) clamp(21px,6vw,36px); }
+  .chapter-topline { font-size: .5rem; }
+  .chapter-copy h1 { font-size: clamp(1.85rem,8vw,3rem); }
+  .chapter-copy > p:not(.chapter-kicker) { font-size: clamp(.92rem,3.8vw,1.1rem); line-height: 1.63; }
+  .book-controls { grid-template-columns: 1fr minmax(88px,130px) 1fr; gap: 7px; padding: 15px 3px 0; }
+  .page-button { min-height: 40px; padding: 0 12px; font-size: .75rem; }
+  .swipe-hint { margin: 12px 0 0; font-size: .6rem; }
 }
-
 @media (max-height: 700px) and (min-width: 701px) {
-  .book-stage { padding-top: 10px !important; }
-  .book-header { padding-bottom: 8px !important; }
-  .page-paper {
-    height: 68svh !important;
-    min-height: 360px !important;
-  }
-  .book-controls { padding-top: 11px !important; }
+  .book-stage { padding-top: 10px; }
+  .book-header { padding-bottom: 8px; }
+  .page-paper { height: 68svh; min-height: 360px; }
+  .chapter-content { padding-top: 22px; padding-bottom: 22px; }
+  .book-controls { padding-top: 11px; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
+@media (orientation: landscape) and (max-height: 540px) {
+  .book-stage { min-height: 100svh; padding-top: 8px; padding-bottom: 8px; }
+  .book-header { padding-bottom: 5px; }
+  .page-paper { height: min(66svh,430px); }
+  .book-controls { padding-top: 8px; }
+  .swipe-hint { display: none; }
 }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
